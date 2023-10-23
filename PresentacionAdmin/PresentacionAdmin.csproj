@@ -165,6 +165,9 @@
     <EmbeddedResource Include="UI\Clientes\formClienteNuevo.resx">
       <DependentUpon>formClienteNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ContratosClientes\formNuevoContratoCliente.resx">
+      <DependentUpon>formNuevoContratoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Contratos\formNuevoContrato.resx">
       <DependentUpon>formNuevoContrato.cs</DependentUpon>
     </EmbeddedResource>

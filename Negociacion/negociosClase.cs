@@ -18,25 +18,6 @@ namespace Negociacion
         {
             return ValData.ValidacionCredencialesLogin(user, password);
         }
-        public DataTable dtClientes()
-        {
-            return ReadData.listadoClientes();
-        }
-        public int guardarCliente(string dpi, string nombre, string apellido, string tel1, string tel2, string direccion, string email)
-        {
-            return SaveData.guardarClientesDt(dpi, nombre, apellido, tel1, tel2, direccion,  email);
-        }
-        public DataTable datosCliente(string dpi)
-        {
-            return(ReadData.datosClienteSeleccionado(dpi));
-        }
-
-
-        public bool editarCliente(string dpi, string nombre, string apellido, string tel1, string tel2, string direccion, string email)
-        {
-            return SaveData.editarCliente(dpi, nombre, apellido, tel1, tel2, direccion, email);
-        }
-
         //
         //Empleados
         //

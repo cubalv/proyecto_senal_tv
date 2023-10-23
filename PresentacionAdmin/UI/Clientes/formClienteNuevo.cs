@@ -17,10 +17,10 @@ namespace PresentacionAdmin.UI.Clientes
         {
             InitializeComponent();
         }
-        negociosClase NC = new negociosClase();
+        clientesNegocios Clientes = new clientesNegocios();
         private void formClienteNuevo_Load(object sender, EventArgs e)
         {
-            DataTable dt = NC.dtClientes();
+            DataTable dt = Clientes.dtClientes();
             gridControl1.DataSource = dt;
             gridColumn1.FieldName = dt.Columns[0].ColumnName;
             gridColumn2.FieldName = dt.Columns[1].ColumnName;
@@ -57,7 +57,7 @@ namespace PresentacionAdmin.UI.Clientes
         private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
         {
             tbDpi.Text = gridView1.GetFocusedRowCellValue("dpi").ToString();
-            DataTable dt = NC.datosCliente(tbDpi.Text);
+            DataTable dt = Clientes.datosCliente(tbDpi.Text);
             if (dt.Rows.Count > 0)
             {
                 tbDpi.Enabled = false;
@@ -75,7 +75,7 @@ namespace PresentacionAdmin.UI.Clientes
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int resultado = NC.guardarCliente(tbDpi.Text, tbNombre.Text, tbApellido.Text, tbTel1.Text, tbTel2.Text, tbDireccion.Text, tbCorreo.Text);
+            int resultado = Clientes.guardarCliente(tbDpi.Text, tbNombre.Text, tbApellido.Text, tbTel1.Text, tbTel2.Text, tbDireccion.Text, tbCorreo.Text);
             switch (resultado)
             {
                 case 0:
@@ -87,7 +87,7 @@ namespace PresentacionAdmin.UI.Clientes
                     MessageBox.Show("El cliente ha sido agregado exitosamente.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
-                    gridControl1.DataSource = NC.dtClientes();
+                    gridControl1.DataSource = Clientes.dtClientes();
                     break;
                 case 2:
                     MessageBox.Show("Ha ocurrido un error.\nPor favor vuelva a intentarlo mas tarde.", "Error",
@@ -99,12 +99,12 @@ namespace PresentacionAdmin.UI.Clientes
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if(NC.editarCliente(tbDpi.Text, tbNombre.Text, tbApellido.Text, tbTel1.Text, tbTel2.Text, tbDireccion.Text, tbCorreo.Text))
+            if(Clientes.editarCliente(tbDpi.Text, tbNombre.Text, tbApellido.Text, tbTel1.Text, tbTel2.Text, tbDireccion.Text, tbCorreo.Text))
             {
                 MessageBox.Show("Se han actualizado los datos con exito", "Exito",
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpiar();
-                gridControl1.DataSource = NC.dtClientes();
+                gridControl1.DataSource = Clientes.dtClientes();
             }
             else
             {
