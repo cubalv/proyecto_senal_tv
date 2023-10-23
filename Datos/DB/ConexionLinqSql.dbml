@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProyectoFinalDB" Class="ConexionLinqSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-HJH9G5O;Initial Catalog=ProyectoFinalDB;User ID=sa" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="ProyectoFinalDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.contratos_empleados" Member="contratos_empleados">
+    <Type Name="contratos_empleados">
+      <Column Name="id_contratos_empleados" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_contrato" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_contrato" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="sueldo_contrato" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="duracion_contrato_meses" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estado_contrato" Type="System.Boolean" DbType="bit NOT NULL" CanBeNull="false" />
+      <Column Name="rango_accesp_contrato " Member="rango_accesp_contrato" Type="System.Int32" DbType="int not null" CanBeNull="false" />
+      <Association Name="contratos_empleados_detalle_contrato_empleado" Member="detalle_contrato_empleado" ThisKey="id_contratos_empleados" OtherKey="id_contratos_empleados" Type="detalle_contrato_empleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detalle_contrato_empleado" Member="detalle_contrato_empleado">
+    <Type Name="detalle_contrato_empleado">
+      <Column Name="id_detalle_contrato_empleados" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_contrato" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_contrato" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="tipo_empleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_contratos_empleados" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="contratos_empleados_detalle_contrato_empleado" Member="contratos_empleados" ThisKey="id_contratos_empleados" OtherKey="id_contratos_empleados" Type="contratos_empleados" IsForeignKey="true" />
+      <Association Name="empleados_detalle_contrato_empleado" Member="empleados" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="empleados" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.clientes" Member="clientes">
+    <Type Name="clientes">
+      <Column Name="dpi_cliente" Type="System.String" DbType="NVarChar(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_cliente" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido_cliente" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_cliente" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono1_cliente" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono2_cliente" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="email_cliente" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_cliente" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
+      <Column Name="contrasena_cliente" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="clientes_contrato_cliente_plan" Member="contrato_cliente_plan" ThisKey="dpi_cliente" OtherKey="dpi_cliente" Type="contrato_cliente_plan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.empleados" Member="empleados">
+    <Type Name="empleados">
+      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_empleado" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidos_empleado" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono_empleado" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="email_empleado" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_empleado" Type="System.String" DbType="NVarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="contrasena_empleado" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_empleado" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="estado_empleado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="empleados_detalle_contrato_empleado" Member="detalle_contrato_empleado" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="detalle_contrato_empleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.departamento" Member="departamento">
+    <Type Name="departamento">
+      <Column Name="id_depto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_depto" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="departamento_municipio" Member="municipio" ThisKey="id_depto" OtherKey="id_depto" Type="municipio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.municipio" Member="municipio">
+    <Type Name="municipio">
+      <Column Name="id_muni" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_muni" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="id_depto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="municipio_zonas" Member="zonas" ThisKey="id_muni" OtherKey="id_muni" Type="zonas" />
+      <Association Name="departamento_municipio" Member="departamento" ThisKey="id_depto" OtherKey="id_depto" Type="departamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.servicio" Member="servicio">
+    <Type Name="servicio">
+      <Column Name="id_servicio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_servicio" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_servicio" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_servicio" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Association Name="servicio_disponibilidades" Member="disponibilidades" ThisKey="id_servicio" OtherKey="id_servicio" Type="disponibilidades" />
+      <Association Name="servicio_detalle_plan" Member="detalle_plan" ThisKey="id_servicio" OtherKey="id_servicio" Type="detalle_plan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.disponibilidades" Member="disponibilidades">
+    <Type Name="disponibilidades">
+      <Column Name="id_disponibilidades" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_zona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_servicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="estado_disponibilidad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="servicio_disponibilidades" Member="servicio" ThisKey="id_servicio" OtherKey="id_servicio" Type="servicio" IsForeignKey="true" />
+      <Association Name="zonas_disponibilidades" Member="zonas" ThisKey="id_zona" OtherKey="id_zona" Type="zonas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zonas" Member="zonas">
+    <Type Name="zonas">
+      <Column Name="id_zona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_zona" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="id_muni" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="zonas_disponibilidades" Member="disponibilidades" ThisKey="id_zona" OtherKey="id_zona" Type="disponibilidades" />
+      <Association Name="municipio_zonas" Member="municipio" ThisKey="id_muni" OtherKey="id_muni" Type="municipio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.planes" Member="planes">
+    <Type Name="planes">
+      <Column Name="id_plan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_plan" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_plan" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="precio_plan" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="precio_instalacion" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="minimo_meses_contratacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="estado_plan" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="planes_contrato_cliente_plan" Member="contrato_cliente_plan" ThisKey="id_plan" OtherKey="id_plan" Type="contrato_cliente_plan" />
+      <Association Name="planes_detalle_plan" Member="detalle_plan" ThisKey="id_plan" OtherKey="id_plan" Type="detalle_plan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.contrato_cliente_plan" Member="contrato_cliente_plan">
+    <Type Name="contrato_cliente_plan">
+      <Column Name="id_contrato_cliente_plan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dpi_cliente" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="id_plan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_contratacion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_de_cobro" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_contrato" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_contrato" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="nit_facturacion" Type="System.String" DbType="NVarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="id_zona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="detalles_contrato" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="precio_plan" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Association Name="planes_contrato_cliente_plan" Member="planes" ThisKey="id_plan" OtherKey="id_plan" Type="planes" IsForeignKey="true" />
+      <Association Name="clientes_contrato_cliente_plan" Member="clientes" ThisKey="dpi_cliente" OtherKey="dpi_cliente" Type="clientes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detalle_plan" Member="detalle_plan">
+    <Type Name="detalle_plan">
+      <Column Name="id_detalle" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_plan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_servicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="estado_detalle" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="servicio_detalle_plan" Member="servicio" ThisKey="id_servicio" OtherKey="id_servicio" Type="servicio" IsForeignKey="true" />
+      <Association Name="planes_detalle_plan" Member="planes" ThisKey="id_plan" OtherKey="id_plan" Type="planes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cuota" Member="cuota">
+    <Type Name="cuota">
+      <Column Name="id_cuota" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_cuota" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_cuota" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="costo_cuota" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_cuota" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
