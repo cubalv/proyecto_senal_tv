@@ -46,6 +46,8 @@
     <Compile Include="Clientes\GuardarClientes.cs" />
     <Compile Include="Clientes\LeerClientes.cs" />
     <Compile Include="ConexionSql.cs" />
+    <Compile Include="ContratosClientes\GuardarContratoClientes.cs" />
+    <Compile Include="ContratosClientes\LeerContratoClientes.cs" />
     <Compile Include="Cuotas\GuardarCuotas.cs" />
     <Compile Include="Cuotas\LeerCuotas.cs" />
     <Compile Include="Empleados\GuardarEmpleados.cs" />

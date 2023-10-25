@@ -47,6 +47,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbConfirmaInstalacion = new MaterialSkin.Controls.MaterialCheckbox();
+            this.btnCompletar = new FontAwesome.Sharp.IconButton();
             this.materialMultiLineTextBox21 = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.tbDireccionCobro = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.tbDireccionContratacion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
@@ -63,7 +65,7 @@
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ddlDepto = new MaterialSkin.Controls.MaterialComboBox();
-            this.btnVerificarDispon = new FontAwesome.Sharp.IconButton();
+            this.btnProgramarInstalacion = new FontAwesome.Sharp.IconButton();
             this.ddlMuni = new MaterialSkin.Controls.MaterialComboBox();
             this.tbNombreZona = new MaterialSkin.Controls.MaterialTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -87,6 +89,7 @@
             this.tbDescripcionPlan = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.lblCodigoPlan = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -144,21 +147,58 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 1246);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1183, 486);
+            this.panel6.Size = new System.Drawing.Size(1183, 506);
             this.panel6.TabIndex = 63;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbConfirmaInstalacion);
+            this.groupBox1.Controls.Add(this.btnCompletar);
             this.groupBox1.Controls.Add(this.materialMultiLineTextBox21);
             this.groupBox1.Controls.Add(this.tbDireccionCobro);
             this.groupBox1.Controls.Add(this.tbDireccionContratacion);
             this.groupBox1.Controls.Add(this.materialTextBox1);
-            this.groupBox1.Location = new System.Drawing.Point(173, 19);
+            this.groupBox1.Location = new System.Drawing.Point(146, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 461);
+            this.groupBox1.Size = new System.Drawing.Size(785, 478);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos del contrato";
+            this.groupBox1.Text = "Detalles del contrato";
+            // 
+            // cbConfirmaInstalacion
+            // 
+            this.cbConfirmaInstalacion.AutoSize = true;
+            this.cbConfirmaInstalacion.Depth = 0;
+            this.cbConfirmaInstalacion.Location = new System.Drawing.Point(100, 387);
+            this.cbConfirmaInstalacion.Margin = new System.Windows.Forms.Padding(0);
+            this.cbConfirmaInstalacion.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbConfirmaInstalacion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cbConfirmaInstalacion.Name = "cbConfirmaInstalacion";
+            this.cbConfirmaInstalacion.ReadOnly = true;
+            this.cbConfirmaInstalacion.Ripple = true;
+            this.cbConfirmaInstalacion.Size = new System.Drawing.Size(190, 37);
+            this.cbConfirmaInstalacion.TabIndex = 48;
+            this.cbConfirmaInstalacion.Text = "Instalacion en la zona";
+            this.cbConfirmaInstalacion.UseVisualStyleBackColor = true;
+            // 
+            // btnCompletar
+            // 
+            this.btnCompletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCompletar.BackColor = System.Drawing.Color.White;
+            this.btnCompletar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCompletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompletar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCompletar.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
+            this.btnCompletar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCompletar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCompletar.Location = new System.Drawing.Point(508, 418);
+            this.btnCompletar.Name = "btnCompletar";
+            this.btnCompletar.Size = new System.Drawing.Size(189, 60);
+            this.btnCompletar.TabIndex = 58;
+            this.btnCompletar.Text = "Completar la contratacion";
+            this.btnCompletar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompletar.UseVisualStyleBackColor = false;
+            this.btnCompletar.Click += new System.EventHandler(this.btnCompletar_Click);
             // 
             // materialMultiLineTextBox21
             // 
@@ -168,7 +208,6 @@
             this.materialMultiLineTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.materialMultiLineTextBox21.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.materialMultiLineTextBox21.Depth = 0;
-            this.materialMultiLineTextBox21.Enabled = false;
             this.materialMultiLineTextBox21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialMultiLineTextBox21.HideSelection = true;
             this.materialMultiLineTextBox21.Hint = "Anotaciones sobre el contrato";
@@ -197,7 +236,6 @@
             this.tbDireccionCobro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.tbDireccionCobro.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDireccionCobro.Depth = 0;
-            this.tbDireccionCobro.Enabled = false;
             this.tbDireccionCobro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDireccionCobro.HideSelection = true;
             this.tbDireccionCobro.Hint = "Direccion de cobro";
@@ -226,7 +264,6 @@
             this.tbDireccionContratacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.tbDireccionContratacion.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDireccionContratacion.Depth = 0;
-            this.tbDireccionContratacion.Enabled = false;
             this.tbDireccionContratacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDireccionContratacion.HideSelection = true;
             this.tbDireccionContratacion.Hint = "Direccion de la contratacion";
@@ -253,7 +290,6 @@
             this.materialTextBox1.AnimateReadOnly = false;
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Enabled = false;
             this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBox1.Hint = "NIT para facturacion";
             this.materialTextBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -274,7 +310,7 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.gridControl3);
             this.panel5.Controls.Add(this.ddlDepto);
-            this.panel5.Controls.Add(this.btnVerificarDispon);
+            this.panel5.Controls.Add(this.btnProgramarInstalacion);
             this.panel5.Controls.Add(this.ddlMuni);
             this.panel5.Controls.Add(this.tbNombreZona);
             this.panel5.Controls.Add(this.label4);
@@ -287,6 +323,7 @@
             // 
             // panelAviso
             // 
+            this.panelAviso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAviso.Controls.Add(this.iconoDisponilibidad);
             this.panelAviso.Controls.Add(this.lblDisponiblidad);
             this.panelAviso.Location = new System.Drawing.Point(835, 286);
@@ -320,7 +357,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(33, 19);
             this.label5.Name = "label5";
@@ -412,24 +448,25 @@
             this.ddlDepto.TabIndex = 51;
             this.ddlDepto.SelectedValueChanged += new System.EventHandler(this.ddlDepto_SelectedValueChanged);
             // 
-            // btnVerificarDispon
+            // btnProgramarInstalacion
             // 
-            this.btnVerificarDispon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVerificarDispon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnVerificarDispon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnVerificarDispon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerificarDispon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnVerificarDispon.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnVerificarDispon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnVerificarDispon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVerificarDispon.Location = new System.Drawing.Point(961, 329);
-            this.btnVerificarDispon.Name = "btnVerificarDispon";
-            this.btnVerificarDispon.Size = new System.Drawing.Size(183, 60);
-            this.btnVerificarDispon.TabIndex = 57;
-            this.btnVerificarDispon.Text = "Verificar Disponilibidad";
-            this.btnVerificarDispon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVerificarDispon.UseVisualStyleBackColor = false;
-            this.btnVerificarDispon.Click += new System.EventHandler(this.btnVerificarDispon_Click);
+            this.btnProgramarInstalacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProgramarInstalacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnProgramarInstalacion.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnProgramarInstalacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProgramarInstalacion.ForeColor = System.Drawing.Color.White;
+            this.btnProgramarInstalacion.IconChar = FontAwesome.Sharp.IconChar.ClipboardQuestion;
+            this.btnProgramarInstalacion.IconColor = System.Drawing.Color.White;
+            this.btnProgramarInstalacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProgramarInstalacion.Location = new System.Drawing.Point(831, 329);
+            this.btnProgramarInstalacion.Name = "btnProgramarInstalacion";
+            this.btnProgramarInstalacion.Size = new System.Drawing.Size(313, 60);
+            this.btnProgramarInstalacion.TabIndex = 57;
+            this.btnProgramarInstalacion.Text = "Programar instalacion del servicio en la zona";
+            this.btnProgramarInstalacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProgramarInstalacion.UseVisualStyleBackColor = false;
+            this.btnProgramarInstalacion.Visible = false;
+            this.btnProgramarInstalacion.Click += new System.EventHandler(this.btnVerificarDispon_Click);
             // 
             // ddlMuni
             // 
@@ -454,7 +491,7 @@
             this.ddlMuni.Size = new System.Drawing.Size(313, 49);
             this.ddlMuni.StartIndex = 0;
             this.ddlMuni.TabIndex = 53;
-            this.ddlMuni.SelectedIndexChanged += new System.EventHandler(this.ddlMuni_SelectedIndexChanged);
+            this.ddlMuni.SelectedValueChanged += new System.EventHandler(this.ddlMuni_SelectedIndexChanged);
             // 
             // tbNombreZona
             // 
@@ -779,6 +816,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Controls.Add(this.tbNombre);
             this.panel3.Controls.Add(this.tbApellido);
@@ -790,6 +828,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1183, 384);
             this.panel3.TabIndex = 60;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(306, 20);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Seleccione el cliente que va a contratar";
             // 
             // gridControl1
             // 
@@ -1006,7 +1053,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 1732);
+            this.panel2.Location = new System.Drawing.Point(0, 1752);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1183, 32);
             this.panel2.TabIndex = 14;
@@ -1024,7 +1071,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 1005);
+            this.ClientSize = new System.Drawing.Size(1500, 1256);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1035,6 +1082,7 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panelAviso.ResumeLayout(false);
@@ -1049,6 +1097,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
@@ -1109,7 +1158,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
         private FontAwesome.Sharp.IconPictureBox iconoDisponilibidad;
         private System.Windows.Forms.Label lblDisponiblidad;
-        private FontAwesome.Sharp.IconButton btnVerificarDispon;
+        private FontAwesome.Sharp.IconButton btnProgramarInstalacion;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -1118,5 +1167,8 @@
         private MaterialSkin.Controls.MaterialTextBox2 tbCostoInstalacion;
         private MaterialSkin.Controls.MaterialTextBox2 tbCostoMensual;
         private System.Windows.Forms.Panel panelAviso;
+        private System.Windows.Forms.Label label3;
+        private FontAwesome.Sharp.IconButton btnCompletar;
+        private MaterialSkin.Controls.MaterialCheckbox cbConfirmaInstalacion;
     }
 }

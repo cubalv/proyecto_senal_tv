@@ -16,7 +16,7 @@ namespace PresentacionAdmin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Inicio());
+            Application.Run(new UI.Logins());
         }
     }
 }

@@ -69,6 +69,18 @@ namespace Datos.DB
     partial void Insertcuota(cuota instance);
     partial void Updatecuota(cuota instance);
     partial void Deletecuota(cuota instance);
+    partial void Insertdetalles_misiones_empleado(detalles_misiones_empleado instance);
+    partial void Updatedetalles_misiones_empleado(detalles_misiones_empleado instance);
+    partial void Deletedetalles_misiones_empleado(detalles_misiones_empleado instance);
+    partial void Insertsolicitudes_de_contrato(solicitudes_de_contrato instance);
+    partial void Updatesolicitudes_de_contrato(solicitudes_de_contrato instance);
+    partial void Deletesolicitudes_de_contrato(solicitudes_de_contrato instance);
+    partial void Insertrelacion_mision_empleado(relacion_mision_empleado instance);
+    partial void Updaterelacion_mision_empleado(relacion_mision_empleado instance);
+    partial void Deleterelacion_mision_empleado(relacion_mision_empleado instance);
+    partial void Insertencabezado_misiones(encabezado_misiones instance);
+    partial void Updateencabezado_misiones(encabezado_misiones instance);
+    partial void Deleteencabezado_misiones(encabezado_misiones instance);
     #endregion
 		
 		public ConexionLinqSqlDataContext() : 
@@ -202,6 +214,38 @@ namespace Datos.DB
 			get
 			{
 				return this.GetTable<cuota>();
+			}
+		}
+		
+		public System.Data.Linq.Table<detalles_misiones_empleado> detalles_misiones_empleado
+		{
+			get
+			{
+				return this.GetTable<detalles_misiones_empleado>();
+			}
+		}
+		
+		public System.Data.Linq.Table<solicitudes_de_contrato> solicitudes_de_contrato
+		{
+			get
+			{
+				return this.GetTable<solicitudes_de_contrato>();
+			}
+		}
+		
+		public System.Data.Linq.Table<relacion_mision_empleado> relacion_mision_empleado
+		{
+			get
+			{
+				return this.GetTable<relacion_mision_empleado>();
+			}
+		}
+		
+		public System.Data.Linq.Table<encabezado_misiones> encabezado_misiones
+		{
+			get
+			{
+				return this.GetTable<encabezado_misiones>();
 			}
 		}
 	}
@@ -3165,6 +3209,734 @@ namespace Datos.DB
 					this._estado_cuota = value;
 					this.SendPropertyChanged("estado_cuota");
 					this.Onestado_cuotaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.detalles_misiones_empleado")]
+	public partial class detalles_misiones_empleado : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_detalles_misiones_empleado;
+		
+		private string _nota_detalle;
+		
+		private string _foto_detalle;
+		
+		private System.DateTime _fecha_hora_detalle;
+		
+		private int _id_misiones;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_detalles_misiones_empleadoChanging(int value);
+    partial void Onid_detalles_misiones_empleadoChanged();
+    partial void Onnota_detalleChanging(string value);
+    partial void Onnota_detalleChanged();
+    partial void Onfoto_detalleChanging(string value);
+    partial void Onfoto_detalleChanged();
+    partial void Onfecha_hora_detalleChanging(System.DateTime value);
+    partial void Onfecha_hora_detalleChanged();
+    partial void Onid_misionesChanging(int value);
+    partial void Onid_misionesChanged();
+    #endregion
+		
+		public detalles_misiones_empleado()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_detalles_misiones_empleado", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_detalles_misiones_empleado
+		{
+			get
+			{
+				return this._id_detalles_misiones_empleado;
+			}
+			set
+			{
+				if ((this._id_detalles_misiones_empleado != value))
+				{
+					this.Onid_detalles_misiones_empleadoChanging(value);
+					this.SendPropertyChanging();
+					this._id_detalles_misiones_empleado = value;
+					this.SendPropertyChanged("id_detalles_misiones_empleado");
+					this.Onid_detalles_misiones_empleadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nota_detalle", DbType="NVarChar(500)")]
+		public string nota_detalle
+		{
+			get
+			{
+				return this._nota_detalle;
+			}
+			set
+			{
+				if ((this._nota_detalle != value))
+				{
+					this.Onnota_detalleChanging(value);
+					this.SendPropertyChanging();
+					this._nota_detalle = value;
+					this.SendPropertyChanged("nota_detalle");
+					this.Onnota_detalleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto_detalle", DbType="NVarChar(100)")]
+		public string foto_detalle
+		{
+			get
+			{
+				return this._foto_detalle;
+			}
+			set
+			{
+				if ((this._foto_detalle != value))
+				{
+					this.Onfoto_detalleChanging(value);
+					this.SendPropertyChanging();
+					this._foto_detalle = value;
+					this.SendPropertyChanged("foto_detalle");
+					this.Onfoto_detalleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_hora_detalle", DbType="Date NOT NULL")]
+		public System.DateTime fecha_hora_detalle
+		{
+			get
+			{
+				return this._fecha_hora_detalle;
+			}
+			set
+			{
+				if ((this._fecha_hora_detalle != value))
+				{
+					this.Onfecha_hora_detalleChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_hora_detalle = value;
+					this.SendPropertyChanged("fecha_hora_detalle");
+					this.Onfecha_hora_detalleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_misiones", DbType="Int NOT NULL")]
+		public int id_misiones
+		{
+			get
+			{
+				return this._id_misiones;
+			}
+			set
+			{
+				if ((this._id_misiones != value))
+				{
+					this.Onid_misionesChanging(value);
+					this.SendPropertyChanging();
+					this._id_misiones = value;
+					this.SendPropertyChanged("id_misiones");
+					this.Onid_misionesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.solicitudes_de_contrato")]
+	public partial class solicitudes_de_contrato : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_solicitudes_de_contrato;
+		
+		private System.DateTime _fecha_solicitud;
+		
+		private int _id_contrato_cliente_plan;
+		
+		private decimal _total_pago;
+		
+		private bool _estado_solicitud;
+		
+		private System.Nullable<System.DateTime> _fecha_completacion;
+		
+		private System.Nullable<int> _id_cuota;
+		
+		private string _concepto_solicitud;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_solicitudes_de_contratoChanging(int value);
+    partial void Onid_solicitudes_de_contratoChanged();
+    partial void Onfecha_solicitudChanging(System.DateTime value);
+    partial void Onfecha_solicitudChanged();
+    partial void Onid_contrato_cliente_planChanging(int value);
+    partial void Onid_contrato_cliente_planChanged();
+    partial void Ontotal_pagoChanging(decimal value);
+    partial void Ontotal_pagoChanged();
+    partial void Onestado_solicitudChanging(bool value);
+    partial void Onestado_solicitudChanged();
+    partial void Onfecha_completacionChanging(System.Nullable<System.DateTime> value);
+    partial void Onfecha_completacionChanged();
+    partial void Onid_cuotaChanging(System.Nullable<int> value);
+    partial void Onid_cuotaChanged();
+    partial void Onconcepto_solicitudChanging(string value);
+    partial void Onconcepto_solicitudChanged();
+    #endregion
+		
+		public solicitudes_de_contrato()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_solicitudes_de_contrato", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_solicitudes_de_contrato
+		{
+			get
+			{
+				return this._id_solicitudes_de_contrato;
+			}
+			set
+			{
+				if ((this._id_solicitudes_de_contrato != value))
+				{
+					this.Onid_solicitudes_de_contratoChanging(value);
+					this.SendPropertyChanging();
+					this._id_solicitudes_de_contrato = value;
+					this.SendPropertyChanged("id_solicitudes_de_contrato");
+					this.Onid_solicitudes_de_contratoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_solicitud", DbType="Date NOT NULL")]
+		public System.DateTime fecha_solicitud
+		{
+			get
+			{
+				return this._fecha_solicitud;
+			}
+			set
+			{
+				if ((this._fecha_solicitud != value))
+				{
+					this.Onfecha_solicitudChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_solicitud = value;
+					this.SendPropertyChanged("fecha_solicitud");
+					this.Onfecha_solicitudChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_contrato_cliente_plan", DbType="Int NOT NULL")]
+		public int id_contrato_cliente_plan
+		{
+			get
+			{
+				return this._id_contrato_cliente_plan;
+			}
+			set
+			{
+				if ((this._id_contrato_cliente_plan != value))
+				{
+					this.Onid_contrato_cliente_planChanging(value);
+					this.SendPropertyChanging();
+					this._id_contrato_cliente_plan = value;
+					this.SendPropertyChanged("id_contrato_cliente_plan");
+					this.Onid_contrato_cliente_planChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_pago", DbType="Decimal(6,2) NOT NULL")]
+		public decimal total_pago
+		{
+			get
+			{
+				return this._total_pago;
+			}
+			set
+			{
+				if ((this._total_pago != value))
+				{
+					this.Ontotal_pagoChanging(value);
+					this.SendPropertyChanging();
+					this._total_pago = value;
+					this.SendPropertyChanged("total_pago");
+					this.Ontotal_pagoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_solicitud", DbType="Bit NOT NULL")]
+		public bool estado_solicitud
+		{
+			get
+			{
+				return this._estado_solicitud;
+			}
+			set
+			{
+				if ((this._estado_solicitud != value))
+				{
+					this.Onestado_solicitudChanging(value);
+					this.SendPropertyChanging();
+					this._estado_solicitud = value;
+					this.SendPropertyChanged("estado_solicitud");
+					this.Onestado_solicitudChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_completacion", DbType="Date")]
+		public System.Nullable<System.DateTime> fecha_completacion
+		{
+			get
+			{
+				return this._fecha_completacion;
+			}
+			set
+			{
+				if ((this._fecha_completacion != value))
+				{
+					this.Onfecha_completacionChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_completacion = value;
+					this.SendPropertyChanged("fecha_completacion");
+					this.Onfecha_completacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cuota", DbType="Int")]
+		public System.Nullable<int> id_cuota
+		{
+			get
+			{
+				return this._id_cuota;
+			}
+			set
+			{
+				if ((this._id_cuota != value))
+				{
+					this.Onid_cuotaChanging(value);
+					this.SendPropertyChanging();
+					this._id_cuota = value;
+					this.SendPropertyChanged("id_cuota");
+					this.Onid_cuotaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_concepto_solicitud", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
+		public string concepto_solicitud
+		{
+			get
+			{
+				return this._concepto_solicitud;
+			}
+			set
+			{
+				if ((this._concepto_solicitud != value))
+				{
+					this.Onconcepto_solicitudChanging(value);
+					this.SendPropertyChanging();
+					this._concepto_solicitud = value;
+					this.SendPropertyChanged("concepto_solicitud");
+					this.Onconcepto_solicitudChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.relacion_mision_empleado")]
+	public partial class relacion_mision_empleado : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_relacion;
+		
+		private string _dpi_empleado;
+		
+		private int _id_misiones;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_relacionChanging(int value);
+    partial void Onid_relacionChanged();
+    partial void Ondpi_empleadoChanging(string value);
+    partial void Ondpi_empleadoChanged();
+    partial void Onid_misionesChanging(int value);
+    partial void Onid_misionesChanged();
+    #endregion
+		
+		public relacion_mision_empleado()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_relacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_relacion
+		{
+			get
+			{
+				return this._id_relacion;
+			}
+			set
+			{
+				if ((this._id_relacion != value))
+				{
+					this.Onid_relacionChanging(value);
+					this.SendPropertyChanging();
+					this._id_relacion = value;
+					this.SendPropertyChanged("id_relacion");
+					this.Onid_relacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_empleado", DbType="NVarChar(13) NOT NULL", CanBeNull=false)]
+		public string dpi_empleado
+		{
+			get
+			{
+				return this._dpi_empleado;
+			}
+			set
+			{
+				if ((this._dpi_empleado != value))
+				{
+					this.Ondpi_empleadoChanging(value);
+					this.SendPropertyChanging();
+					this._dpi_empleado = value;
+					this.SendPropertyChanged("dpi_empleado");
+					this.Ondpi_empleadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_misiones", DbType="Int NOT NULL")]
+		public int id_misiones
+		{
+			get
+			{
+				return this._id_misiones;
+			}
+			set
+			{
+				if ((this._id_misiones != value))
+				{
+					this.Onid_misionesChanging(value);
+					this.SendPropertyChanging();
+					this._id_misiones = value;
+					this.SendPropertyChanged("id_misiones");
+					this.Onid_misionesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.encabezado_misiones")]
+	public partial class encabezado_misiones : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_misiones;
+		
+		private System.DateTime _fecha_creacion;
+		
+		private string _concepto_mision;
+		
+		private System.DateTime _fecha_programada;
+		
+		private string _hora_programada;
+		
+		private bool _estado_mision;
+		
+		private System.Nullable<int> _id_solicitudes_de_contrato;
+		
+		private bool _estado_asignacion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_misionesChanging(int value);
+    partial void Onid_misionesChanged();
+    partial void Onfecha_creacionChanging(System.DateTime value);
+    partial void Onfecha_creacionChanged();
+    partial void Onconcepto_misionChanging(string value);
+    partial void Onconcepto_misionChanged();
+    partial void Onfecha_programadaChanging(System.DateTime value);
+    partial void Onfecha_programadaChanged();
+    partial void Onhora_programadaChanging(string value);
+    partial void Onhora_programadaChanged();
+    partial void Onestado_misionChanging(bool value);
+    partial void Onestado_misionChanged();
+    partial void Onid_solicitudes_de_contratoChanging(System.Nullable<int> value);
+    partial void Onid_solicitudes_de_contratoChanged();
+    partial void Onestado_asignacionChanging(bool value);
+    partial void Onestado_asignacionChanged();
+    #endregion
+		
+		public encabezado_misiones()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_misiones", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_misiones
+		{
+			get
+			{
+				return this._id_misiones;
+			}
+			set
+			{
+				if ((this._id_misiones != value))
+				{
+					this.Onid_misionesChanging(value);
+					this.SendPropertyChanging();
+					this._id_misiones = value;
+					this.SendPropertyChanged("id_misiones");
+					this.Onid_misionesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_creacion", DbType="Date NOT NULL")]
+		public System.DateTime fecha_creacion
+		{
+			get
+			{
+				return this._fecha_creacion;
+			}
+			set
+			{
+				if ((this._fecha_creacion != value))
+				{
+					this.Onfecha_creacionChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_creacion = value;
+					this.SendPropertyChanged("fecha_creacion");
+					this.Onfecha_creacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_concepto_mision", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string concepto_mision
+		{
+			get
+			{
+				return this._concepto_mision;
+			}
+			set
+			{
+				if ((this._concepto_mision != value))
+				{
+					this.Onconcepto_misionChanging(value);
+					this.SendPropertyChanging();
+					this._concepto_mision = value;
+					this.SendPropertyChanged("concepto_mision");
+					this.Onconcepto_misionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_programada", DbType="Date NOT NULL")]
+		public System.DateTime fecha_programada
+		{
+			get
+			{
+				return this._fecha_programada;
+			}
+			set
+			{
+				if ((this._fecha_programada != value))
+				{
+					this.Onfecha_programadaChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_programada = value;
+					this.SendPropertyChanged("fecha_programada");
+					this.Onfecha_programadaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hora_programada", DbType="NVarChar(5) NOT NULL", CanBeNull=false)]
+		public string hora_programada
+		{
+			get
+			{
+				return this._hora_programada;
+			}
+			set
+			{
+				if ((this._hora_programada != value))
+				{
+					this.Onhora_programadaChanging(value);
+					this.SendPropertyChanging();
+					this._hora_programada = value;
+					this.SendPropertyChanged("hora_programada");
+					this.Onhora_programadaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_mision", DbType="Bit NOT NULL")]
+		public bool estado_mision
+		{
+			get
+			{
+				return this._estado_mision;
+			}
+			set
+			{
+				if ((this._estado_mision != value))
+				{
+					this.Onestado_misionChanging(value);
+					this.SendPropertyChanging();
+					this._estado_mision = value;
+					this.SendPropertyChanged("estado_mision");
+					this.Onestado_misionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_solicitudes_de_contrato", DbType="Int")]
+		public System.Nullable<int> id_solicitudes_de_contrato
+		{
+			get
+			{
+				return this._id_solicitudes_de_contrato;
+			}
+			set
+			{
+				if ((this._id_solicitudes_de_contrato != value))
+				{
+					this.Onid_solicitudes_de_contratoChanging(value);
+					this.SendPropertyChanging();
+					this._id_solicitudes_de_contrato = value;
+					this.SendPropertyChanged("id_solicitudes_de_contrato");
+					this.Onid_solicitudes_de_contratoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_asignacion", DbType="Bit NOT NULL")]
+		public bool estado_asignacion
+		{
+			get
+			{
+				return this._estado_asignacion;
+			}
+			set
+			{
+				if ((this._estado_asignacion != value))
+				{
+					this.Onestado_asignacionChanging(value);
+					this.SendPropertyChanging();
+					this._estado_asignacion = value;
+					this.SendPropertyChanged("estado_asignacion");
+					this.Onestado_asignacionChanged();
 				}
 			}
 		}

@@ -52,6 +52,8 @@ namespace PresentacionAdmin.UI
                 panelEmpleadoMenu.Visible = false;
             if (panelServicesMenu.Visible)
                 panelServicesMenu.Visible = false;
+            if (panelContratosClientes.Visible)
+                panelContratosClientes.Visible = false;
         }
 
         //botones con submenu--------------------------------------------------------------
@@ -74,6 +76,10 @@ namespace PresentacionAdmin.UI
         private void iconButton9_Click(object sender, EventArgs e)
         {
             mostrarSubmenu(panelServicesMenu);
+        }
+        private void btnContratarServicios_Click(object sender, EventArgs e)
+        {
+            mostrarSubmenu(panelContratosClientes);
         }
         //
         //botones para abrir form 
@@ -263,6 +269,30 @@ namespace PresentacionAdmin.UI
         {
 
             activarbutton(sender, panelMenuAdmin);
+        }
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (formAbiertoActual == null)
+            {
+                activarbutton(sender, panelContratosClientes);
+                abrirHijo(new UI.ContratosClientes.formNuevoContratoCliente());
+            }
+            else
+            {
+                if (formAbiertoActual.Name != "formNuevoContratoCliente")
+                {
+                    if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
+                    {
+                        activarbutton(sender, panelContratosClientes);
+                        abrirHijo(new UI.ContratosClientes.formNuevoContratoCliente());
+                    }
+                }
+            }
+        }
+
+        private void btnListadoClienteContrato_Click(object sender, EventArgs e)
+        {
+            activarbutton(sender, panelContratosClientes);
         }
 
         private void btnContratarEmpleado_Click(object sender, EventArgs e)
