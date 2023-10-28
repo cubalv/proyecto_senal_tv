@@ -194,7 +194,19 @@ namespace PresentacionAdmin.UI.ContratosClientes
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            Reportes.contratoNuevoCliente.ContratoClienteViewer NuevoContrato = new Reportes.contratoNuevoCliente.ContratoClienteViewer();
+            string NoContrato = "09205";
+            string Depto = ddlDepto.Text;
+            string Munis = ddlMuni.Text;
+            string NombreCliente = $"{tbNombre.Text} {tbApellido.Text}";
+            string Tel1 = tbTel1.Text;
+            string Tel2 = tbTel1.Text;
+            string NIT = tbNit.Text;
+            string Correo = tbCorreo.Text;
+            string NombrePlan = tbNombrePlan.Text;
+            string PrecioMens = tbCostoMensual.Text;
+            string DireccionInstalacion = tbDireccionContratacion.Text;
+            string DireccionCobro = tbDireccionCobro.Text;
+            Reportes.contratoNuevoCliente.ContratoClienteViewer NuevoContrato = new Reportes.contratoNuevoCliente.ContratoClienteViewer(NoContrato,Depto,Munis,NombreCliente,Tel1,Tel1,NIT,Correo,NombrePlan,PrecioMens,DireccionInstalacion,DireccionCobro);
             NuevoContrato.ShowDialog();
         }
     }
