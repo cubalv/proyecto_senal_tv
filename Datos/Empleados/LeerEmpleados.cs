@@ -40,6 +40,36 @@ namespace Datos.Empleados
             catch { }
             return dt;
         }
+        public DataTable listadoEmpleados(int permisos)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("dpi");
+            dt.Columns.Add("nombre");
+            dt.Columns.Add("telefono");
+            dt.Columns.Add("direccion");
+            dt.Columns.Add("correo");
+
+            try
+            {
+                var listadoEmp = from empleadoss in linqConect.detalle_contrato_empleado
+                                 where empleadoss.tipo_empleado.Equals(permisos)
+                                 select new
+                                 {
+                                     dpi = empleadoss.empleados.dpi_empleado,
+                                     nombre = $"{empleadoss.empleados.nombre_empleado} {empleadoss.empleados.apellidos_empleado}",
+                                     telefono = empleadoss.empleados.telefono_empleado,
+                                     direccion = empleadoss.empleados.direccion_empleado,
+                                     correo = empleadoss.empleados.email_empleado
+                                 };
+
+                foreach (var empleado in listadoEmp)
+                {
+                    dt.Rows.Add(empleado.dpi, empleado.nombre, empleado.telefono, empleado.direccion, empleado.correo);
+                };
+            }
+            catch { }
+            return dt;
+        }
         public DataTable datosEmpleado(string dpi)
         {
             DataTable dt = new DataTable();
@@ -107,5 +137,52 @@ namespace Datos.Empleados
             return comprobacion;
         }
 
+        public DataTable misionesEmpleados(bool estadoAsignado)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("codigo");
+            dt.Columns.Add("concepto");
+            try
+            {
+                var misiones = (from mision in linqConect.encabezado_misiones
+                               where mision.estado_asignacion.Equals(estadoAsignado)
+                               select new
+                               {
+                                   codigo=mision.id_misiones,
+                                   concepto =mision.concepto_mision,
+                               }).ToList();
+                foreach (var item in misiones)
+                {
+                    dt.Rows.Add(item.codigo,item.concepto);
+                };
+            }
+            catch { }
+
+            return dt;
+        }
+
+        public DataTable misionesEmpleados(string dpiEmpleado)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("codigo");
+            dt.Columns.Add("concepto");
+            try
+            {
+                var misiones = (from mision in linqConect.relacion_mision_empleado
+                                where mision.dpi_empleado.Equals(dpiEmpleado)
+                                select new
+                                {
+                                    codigo = mision.id_misiones,
+                                    concepto = mision.encabezado_misiones.concepto_mision,
+                                }).ToList();
+                foreach (var item in misiones)
+                {
+                    dt.Rows.Add(item.codigo, item.concepto);
+                };
+            }
+            catch { }
+
+            return dt;
+        }
     }
 }

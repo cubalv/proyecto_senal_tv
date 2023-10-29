@@ -124,6 +124,37 @@ namespace Datos.Empleados
                 }
             }
         }
+        public bool asignarMisionesEmpleados(List<int> misiones,string dpiEmpleado)
+        {
+            using (TransactionScope transa = new TransactionScope())
+            {
+                try
+                {
+                    foreach (int item in misiones)
+                    {
+                        var misionAAsignar = (from mision in linqConect.encabezado_misiones
+                                              where mision.id_misiones.Equals(item)
+                                              select mision).FirstOrDefault();
+                        misionAAsignar.estado_asignacion = true;
+                        linqConect.SubmitChanges();
+                        relacion_mision_empleado nuevaConexion = new relacion_mision_empleado()
+                        {
+                            id_misiones= item,
+                            dpi_empleado=dpiEmpleado
+                        };
+                        linqConect.relacion_mision_empleado.InsertOnSubmit(nuevaConexion);
+                        linqConect.SubmitChanges();
+                    }
+                    transa.Complete();
+                    return true;
+                }
+                catch
+                {
+                    transa.Dispose();
+                    return false;
+                }
+            }
+        }
 
     }
 }

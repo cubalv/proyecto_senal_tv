@@ -142,6 +142,12 @@
     <Compile Include="UI\Logins.Designer.cs">
       <DependentUpon>Logins.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Misiones\formAsignarMisionesEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Misiones\formAsignarMisionesEmpleado.Designer.cs">
+      <DependentUpon>formAsignarMisionesEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Precios\formAdminCuotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Logins.resx">
       <DependentUpon>Logins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Misiones\formAsignarMisionesEmpleado.resx">
+      <DependentUpon>formAsignarMisionesEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Precios\formAdminCuotas.resx">
       <DependentUpon>formAdminCuotas.cs</DependentUpon>

@@ -104,10 +104,10 @@
         <elementListCompartment Id="e178661d-f9d8-489a-84e1-6114c7b87f32" absoluteBounds="8.89, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d369e2de-e6cc-4dcd-9890-b5388aadb303" absoluteBounds="4.25, 0.5, 2, 3.1170068359375">
+    <classShape Id="d369e2de-e6cc-4dcd-9890-b5388aadb303" absoluteBounds="4.25, 0.5, 2, 2.9247054036458331">
       <DataClassMoniker Name="/ConexionLinqSqlDataContext/contrato_cliente_plan" />
       <nestedChildShapes>
-        <elementListCompartment Id="28f80502-bbe9-4a6c-90d3-58a11d9827a6" absoluteBounds="4.2650000000000006, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="28f80502-bbe9-4a6c-90d3-58a11d9827a6" absoluteBounds="4.2650000000000006, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="ef5ce439-49ce-46d8-b1fd-dddc7d4803fe" absoluteBounds="11.875, 0.5, 2, 1.5785953776041666">
@@ -174,5 +174,26 @@
         <elementListCompartment Id="82764f9f-9db3-4144-b516-376cee0af3ea" absoluteBounds="4.765, 4.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(5.8125 : 9); (5.8125 : 8.5112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConexionLinqSqlDataContext/empleados/empleados_relacion_mision_empleado" />
+      <nodes>
+        <classShapeMoniker Id="110d2334-cdb7-4e08-a5d2-886bae9f85b5" />
+        <classShapeMoniker Id="7ea0bf87-f1af-4379-a507-908447754e5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 6.53049967447917); (5.75 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConexionLinqSqlDataContext/encabezado_misiones/encabezado_misiones_relacion_mision_empleado" />
+      <nodes>
+        <classShapeMoniker Id="58003bbb-b00e-4492-99f2-3b795784a9c2" />
+        <classShapeMoniker Id="7ea0bf87-f1af-4379-a507-908447754e5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 5.36140055338542); (6.75 : 5.36140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConexionLinqSqlDataContext/solicitudes_de_contrato/solicitudes_de_contrato_encabezado_misiones" />
+      <nodes>
+        <classShapeMoniker Id="48497d70-b7ec-45f3-8b23-494a55c07d44" />
+        <classShapeMoniker Id="58003bbb-b00e-4492-99f2-3b795784a9c2" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

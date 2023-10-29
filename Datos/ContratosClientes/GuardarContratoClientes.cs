@@ -32,7 +32,6 @@ namespace Datos.ContratosClientes
                         nit_facturacion = nit,
                         id_zona = codigoZona,
                         detalles_contrato = detallesContrato,
-                        dpi_empleado = CacheLogin.dpi_usuario,
                         precio_plan = precioMensual
                     };
                     linqConect.contrato_cliente_plan.InsertOnSubmit(nuevoContrato);
@@ -54,6 +53,7 @@ namespace Datos.ContratosClientes
                         fecha_creacion = DateTime.Now,
                         concepto_mision = "Instalar servicio contratado.",
                         fecha_programada = manana,
+                        id_solicitudes_de_contrato = NuevoSolicitud.id_solicitudes_de_contrato,
                         estado_asignacion = false,
                         estado_mision = true,
 
@@ -88,7 +88,6 @@ namespace Datos.ContratosClientes
                         nit_facturacion = nit,
                         id_zona = codigoZona,
                         detalles_contrato = detallesContrato,
-                        dpi_empleado = CacheLogin.dpi_usuario,
                         precio_plan = precioMensual
                     };
                     linqConect.contrato_cliente_plan.InsertOnSubmit(nuevoContrato);
@@ -110,6 +109,7 @@ namespace Datos.ContratosClientes
                         fecha_creacion = DateTime.Now,
                         concepto_mision = "Instalar servicio contratado.",
                         fecha_programada = manana,
+                        id_solicitudes_de_contrato= NuevoSolicitud.id_solicitudes_de_contrato,
                         estado_asignacion = false,
                         estado_mision = true,
 
@@ -124,6 +124,16 @@ namespace Datos.ContratosClientes
                                               {
                                                   idServ = listado.id_servicio
                                               });
+
+                    NuevaMision = new encabezado_misiones()
+                    {
+                        fecha_creacion = DateTime.Now,
+                        concepto_mision = "Instalar servicios para el plan contratado",
+                        fecha_programada = manana,
+                        estado_asignacion = false,
+                        estado_mision = true,
+
+                    };
                     GuardarZonas auxZona = new GuardarZonas();
                     foreach(var item in serviciosAinstalar)
                     {

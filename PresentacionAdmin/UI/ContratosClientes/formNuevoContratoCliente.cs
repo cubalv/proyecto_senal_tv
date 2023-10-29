@@ -45,7 +45,7 @@ namespace PresentacionAdmin.UI.ContratosClientes
             bool NIT = tbNit.Text.Length > 0;
             bool Notas = tbAnotaciones.Text.Length > 0;
 
-            if (tbDpi.Text != "" && lblCodigoPlan.Text.StartsWith("label") && lblCodigoZona.Text.StartsWith("label") && DireccionContratacion && DireccionCobro && NIT && Notas)
+            if (tbDpi.Text != "" && !lblCodigoPlan.Text.StartsWith("label") && !lblCodigoZona.Text.StartsWith("label") && DireccionContratacion && DireccionCobro && NIT && Notas)
             {
                 return true;
             }
@@ -170,44 +170,63 @@ namespace PresentacionAdmin.UI.ContratosClientes
 
         private void btnCompletar_Click(object sender, EventArgs e)
         {
-            if (verificarDatosLLenos())
+            string DireccionContratacion = tbDireccionContratacion.Text;
+            string DireccionCobro = tbDireccionCobro.Text;
+            string NIT = tbNit.Text;
+            string Notas = tbAnotaciones.Text;
+            string dpi = tbDpi.Text;
+            int idPlan = Convert.ToInt32(lblCodigoPlan.Text);
+            int idZona = Convert.ToInt32(lblCodigoZona.Text);
+            decimal precioMensual = Convert.ToDecimal(tbCostoMensual.Text);
+            decimal precioInstalacion = Convert.ToDecimal(tbCostoInstalacion.Text);
+            if (cbConfirmaInstalacion.Checked)
             {
-                string DireccionContratacion = tbDireccionContratacion.Text;
-                string DireccionCobro = tbDireccionCobro.Text;
-                string NIT = tbNit.Text;
-                string Notas = tbAnotaciones.Text;
-                string dpi = tbDpi.Text;
-                int idPlan = Convert.ToInt32(lblCodigoPlan.Text);
-                int idZona = Convert.ToInt32(lblCodigoZona.Text);
-                decimal precioMensual = Convert.ToDecimal(tbCostoMensual.Text);
-                decimal precioInstalacion = Convert.ToDecimal(tbCostoInstalacion.Text);
-                if (cbConfirmaInstalacion.Checked)
+                if(Contratos.guardarContratoNuevo(dpi,idPlan,idZona, DireccionContratacion, DireccionCobro, NIT, Notas, precioMensual, precioInstalacion))
                 {
-                    Contratos.guardarContratoNuevo(dpi,idPlan,idZona, DireccionContratacion, DireccionCobro,NIT,Notas,precioMensual,precioInstalacion);
+                    MessageBox.Show("Se ha creado la orden de instalacion y el contrato exitosamente","Operacion exitosa",
+                        MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
-
+                    MessageBox.Show("Ocurrio un error al crear el contrato.\nPor favor intentelo mas tarde.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if(Contratos.guardarContratoNuevoConInstalacionZona(dpi, idPlan, idZona, DireccionContratacion, DireccionCobro, NIT, Notas, precioMensual, precioInstalacion))
+                {
+                    MessageBox.Show("Se ha creado la orden de instalacion y el contrato exitosamente", "Operacion exitosa",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error al crear el contrato.\nPor favor intentelo mas tarde.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            string NoContrato = "09205";
-            string Depto = ddlDepto.Text;
-            string Munis = ddlMuni.Text;
-            string NombreCliente = $"{tbNombre.Text} {tbApellido.Text}";
-            string Tel1 = tbTel1.Text;
-            string Tel2 = tbTel1.Text;
-            string NIT = tbNit.Text;
-            string Correo = tbCorreo.Text;
-            string NombrePlan = tbNombrePlan.Text;
-            string PrecioMens = tbCostoMensual.Text;
-            string DireccionInstalacion = tbDireccionContratacion.Text;
-            string DireccionCobro = tbDireccionCobro.Text;
-            Reportes.contratoNuevoCliente.ContratoClienteViewer NuevoContrato = new Reportes.contratoNuevoCliente.ContratoClienteViewer(NoContrato,Depto,Munis,NombreCliente,Tel1,Tel1,NIT,Correo,NombrePlan,PrecioMens,DireccionInstalacion,DireccionCobro);
-            NuevoContrato.ShowDialog();
+            if (verificarDatosLLenos())
+            {
+                string NoContrato = "09205";
+                string Depto = ddlDepto.Text;
+                string Munis = ddlMuni.Text;
+                string NombreCliente = $"{tbNombre.Text} {tbApellido.Text}";
+                string Tel1 = tbTel1.Text;
+                string Tel2 = tbTel1.Text;
+                string NIT = tbNit.Text;
+                string Correo = tbCorreo.Text;
+                string NombrePlan = tbNombrePlan.Text;
+                string PrecioMens = tbCostoMensual.Text;
+                string DireccionInstalacion = tbDireccionContratacion.Text;
+                string DireccionCobro = tbDireccionCobro.Text;
+                Reportes.contratoNuevoCliente.ContratoClienteViewer NuevoContrato = new Reportes.contratoNuevoCliente.ContratoClienteViewer(NoContrato, Depto, Munis, NombreCliente, Tel1, Tel1, NIT, Correo, NombrePlan, PrecioMens, DireccionInstalacion, DireccionCobro);
+                NuevoContrato.ShowDialog();
+                btnCompletar.Enabled = true;
+            }
         }
     }
 }

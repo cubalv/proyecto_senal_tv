@@ -167,7 +167,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(189, 60);
             this.btnImprimir.TabIndex = 59;
-            this.btnImprimir.Text = "Completar la contratacion";
+            this.btnImprimir.Text = "Imprimir contrato\r\n";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -310,6 +310,7 @@
             // 
             this.btnCompletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCompletar.BackColor = System.Drawing.Color.White;
+            this.btnCompletar.Enabled = false;
             this.btnCompletar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnCompletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompletar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));

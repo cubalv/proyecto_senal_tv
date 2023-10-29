@@ -31,6 +31,10 @@ namespace Negociacion
         {
             return ReadData.listadoEmpleados();
         }
+        public DataTable listadoEmpleados(int permisos)
+        {
+            return ReadData.listadoEmpleados(permisos);
+        }
         public DataTable datosEmpleados(string dpi)
         {
             return ReadData.datosEmpleado(dpi);
@@ -42,6 +46,19 @@ namespace Negociacion
         public bool comprobarContratoEmpleado(string dpi)
         {
             return ReadData.comprobarContratoDelEmpleado(dpi);
+        }
+
+        public DataTable listaMisiones(bool estado)
+        {
+            return ReadData.misionesEmpleados(estado);
+        }
+        public DataTable listaMisiones(string dpiEmpleado)
+        {
+            return ReadData.misionesEmpleados(dpiEmpleado);
+        }
+        public bool asignarMisionesEmpleados(List<int> misiones, string dpiEmpleado)
+        {
+            return SaveData.asignarMisionesEmpleados(misiones, dpiEmpleado);
         }
     }
 }
