@@ -130,6 +130,8 @@ namespace PresentacionAdmin.UI.Zonas
                 {
                     if (Zonas.editarDisponibilidades(Convert.ToInt32(lblCodigo.Text), idServicios))
                     {
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se guardarons los cambios hechos a los servicios disponibles en cada zona");
                         MessageBox.Show("Se han guardado los cambios hechos a las disponibilidades de la zona.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

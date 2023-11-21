@@ -70,6 +70,7 @@ namespace PresentacionAdmin.UI.Contratos
             else
                 return false;
         }
+        negociosClase Historial = new negociosClase();
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (verificar())
@@ -79,9 +80,10 @@ namespace PresentacionAdmin.UI.Contratos
                     if (NC.guardaContacto(tbNombreContrato.Text, tbDescripcion.Text, Convert.ToDecimal(tbSueldo.Text), Convert.ToInt32(tbDuracion.Text), Convert.ToInt32(ddlRangos.SelectedValue)))
                     {
                         gridControl1.DataSource = NC.listadoContrato(true);
-                        limpiar();
                         MessageBox.Show("Se ha agregado exitosamente el contrato.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se ingreso el contrato {tbNombreContrato.Text} al sistema");
+                        limpiar();
                     }
                     else
                     {
@@ -99,6 +101,7 @@ namespace PresentacionAdmin.UI.Contratos
                             gridControl1.DataSource = NC.listadoContrato(true);
                             rjToggleButton1.Checked = true;
 
+                            Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se reingreso el contrato {tbNombreContrato.Text} al sistema");
                             limpiar();
                             MessageBox.Show("Se ha habilitado exitosamente el contrato.", "Exito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -180,6 +183,7 @@ namespace PresentacionAdmin.UI.Contratos
                 if (NC.editaContacto(codigo, nombre, desc, sueldo, duracion,Convert.ToInt32(ddlRangos.SelectedValue)))
                 {
                     gridControl1.DataSource = NC.listadoContrato(true);
+                    Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se edito el contrato {tbNombreContrato.Text}");
                     limpiar();
                     MessageBox.Show("Se ha editado exitosamente el contrato.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,6 +211,7 @@ namespace PresentacionAdmin.UI.Contratos
                     int codigo = Convert.ToInt32(lblcodigo.Text);
                     if (NC.eliminarContrato(codigo))
                     {
+                        Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se deshabilito el contrato {tbNombreContrato.Text}");
                         MessageBox.Show("Se ha elimnado deshabilitado el contrato.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

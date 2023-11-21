@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="PresentacionWeb.UI.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
+    <title>Señal TV</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/4d266833a5.js" crossorigin="anonymous"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>    
+    <form id="form1" runat="server">
+        <header class="d-flex justify-content-center py-3 text-bg-dark">
+            <ul class="nav nav-pills ">
+                <li class="nav-item nav-link px-2"><a href="Inicio.aspx" class="nav-link active" aria-current="page">Inicio</a></li>
+                <li class="nav-item nav-link px-2"><a href="Misiones.aspx" class="nav-link text-white">Misiones</a></li>
+                <li class="nav-item nav-link px-2">
+                    <asp:Button CssClass="nav-link text-white" OnClick="btnSalir_click" ID="btnSalir" runat="server" Text="Salir" /></li>
+            </ul>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

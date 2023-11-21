@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAdminCuotas));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -35,16 +36,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
             this.tbCosto = new MaterialSkin.Controls.MaterialTextBox2();
             this.tbDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.lblcodigo = new System.Windows.Forms.Label();
             this.tbNombreCuota = new MaterialSkin.Controls.MaterialTextBox();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,16 +49,20 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.gridControl1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.rjToggleButton1);
             this.panel1.Controls.Add(this.tbCosto);
@@ -72,39 +73,11 @@
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.gridControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 692);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 20);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Contratos activos";
-            // 
-            // rjToggleButton1
-            // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Checked = true;
-            this.rjToggleButton1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rjToggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjToggleButton1.Location = new System.Drawing.Point(163, 21);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
-            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(36)))), ((int)(((byte)(75)))));
-            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.TabIndex = 31;
-            this.rjToggleButton1.UseVisualStyleBackColor = true;
-            this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
             // 
             // tbCosto
             // 
@@ -154,7 +127,7 @@
             this.tbDescripcion.MouseState = MaterialSkin.MouseState.OUT;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.PasswordChar = '\0';
-            this.tbDescripcion.ReadOnly = false;
+            this.tbDescripcion.ReadOnly = true;
             this.tbDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.tbDescripcion.SelectedText = "";
             this.tbDescripcion.SelectionLength = 0;
@@ -191,31 +164,11 @@
             this.tbNombreCuota.MouseState = MaterialSkin.MouseState.OUT;
             this.tbNombreCuota.Multiline = false;
             this.tbNombreCuota.Name = "tbNombreCuota";
+            this.tbNombreCuota.ReadOnly = true;
             this.tbNombreCuota.Size = new System.Drawing.Size(317, 50);
             this.tbNombreCuota.TabIndex = 27;
             this.tbNombreCuota.Text = "";
             this.tbNombreCuota.TrailingIcon = null;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.FileCircleMinus;
-            this.btnEliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.Location = new System.Drawing.Point(854, 435);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 60);
-            this.btnEliminar.TabIndex = 26;
-            this.btnEliminar.Text = "Deshabilitar";
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
@@ -227,7 +180,7 @@
             this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.btnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancelar.Location = new System.Drawing.Point(1021, 435);
+            this.btnCancelar.Location = new System.Drawing.Point(1021, 358);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(150, 60);
             this.btnCancelar.TabIndex = 25;
@@ -256,36 +209,15 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            this.btnAgregar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregar.Location = new System.Drawing.Point(1021, 358);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(150, 60);
-            this.btnAgregar.TabIndex = 23;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // gridControl1
             // 
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(22, 58);
+            this.gridControl1.Location = new System.Drawing.Point(22, 21);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(809, 622);
+            this.gridControl1.Size = new System.Drawing.Size(809, 659);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -340,23 +272,90 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Seleccionar";
-            this.gridColumn5.ColumnEdit = this.repositoryItemButtonEdit1;
+            repositoryItemButtonEdit1.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions1.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seleccionar", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.gridColumn5.ColumnEdit = repositoryItemButtonEdit1;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 106;
             // 
-            // repositoryItemButtonEdit1
+            // btnAgregar
             // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            editorButtonImageOptions1.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seleccionar", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
+            this.btnAgregar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.Location = new System.Drawing.Point(1021, 448);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(150, 60);
+            this.btnAgregar.TabIndex = 23;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Visible = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.FileCircleMinus;
+            this.btnEliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.Location = new System.Drawing.Point(865, 449);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 60);
+            this.btnEliminar.TabIndex = 26;
+            this.btnEliminar.Text = "Deshabilitar";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // rjToggleButton1
+            // 
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Checked = true;
+            this.rjToggleButton1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rjToggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjToggleButton1.Location = new System.Drawing.Point(163, 21);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
+            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton1.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(36)))), ((int)(((byte)(75)))));
+            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.TabIndex = 31;
+            this.rjToggleButton1.UseVisualStyleBackColor = true;
+            this.rjToggleButton1.Visible = false;
+            this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 20);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Contratos activos";
+            this.label1.Visible = false;
             // 
             // formAdminCuotas
             // 
@@ -373,7 +372,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,15 +387,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnEditar;
-        private FontAwesome.Sharp.IconButton btnAgregar;
         private System.Windows.Forms.Label lblcodigo;
         private MaterialSkin.Controls.MaterialTextBox tbNombreCuota;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 tbDescripcion;
         private MaterialSkin.Controls.MaterialTextBox2 tbCosto;
+        private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton btnAgregar;
         private System.Windows.Forms.Label label1;
         private RJCodeAdvance.RJControls.RJToggleButton rjToggleButton1;
     }

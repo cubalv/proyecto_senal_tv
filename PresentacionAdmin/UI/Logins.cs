@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTab.Buttons;
 using Negociacion;
+using Comun;
+using Comun.Cache;
 
 namespace PresentacionAdmin.UI
 {

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\CacheLogin.cs" />
+    <Compile Include="Cache\cacheLoginWeb.cs" />
+    <Compile Include="Cache\cachePagoFactura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

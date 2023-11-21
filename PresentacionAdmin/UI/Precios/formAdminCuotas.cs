@@ -138,6 +138,8 @@ namespace PresentacionAdmin.UI.Precios
                 if (Cuotas.editarCuota(codigo, nombre, desc,costo))
                 {
                     gridControl1.DataSource = Cuotas.listadoCuotas(rjToggleButton1.Checked);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se edito el costo de la cuota de {tbNombreCuota.Text}");
                     limpiar();
                     MessageBox.Show("Se ha editado exitosamente la cuota.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

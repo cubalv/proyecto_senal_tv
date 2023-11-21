@@ -14,10 +14,10 @@ namespace Datos
     public class GuardarDatos
     {
         DB.ConexionLinqSqlDataContext linqConect = new DB.ConexionLinqSqlDataContext(ConexionSql.route);
-        
+
         public bool guardaContrato(string nombre, string descripcion, decimal sueldo, int duracion, int tipo_permisos)
         {
-            using(TransactionScope transa = new TransactionScope()) 
+            using (TransactionScope transa = new TransactionScope())
             {
                 try
                 {
@@ -28,7 +28,7 @@ namespace Datos
                         sueldo_contrato = sueldo,
                         duracion_contrato_meses = duracion,
                         estado_contrato = true,
-                        rango_accesp_contrato=tipo_permisos
+                        rango_accesp_contrato = tipo_permisos
 
                     };
                     linqConect.contratos_empleados.InsertOnSubmit(nuevoContrato);
@@ -43,15 +43,15 @@ namespace Datos
                 }
             }
         }
-        public bool editaContrato(int codigo,string nombre, string descripcion, decimal sueldo, int duracion, int tipo_permisos)
+        public bool editaContrato(int codigo, string nombre, string descripcion, decimal sueldo, int duracion, int tipo_permisos)
         {
             using (TransactionScope transa = new TransactionScope())
             {
                 try
                 {
-                    var editarContrato= (from contratos in linqConect.contratos_empleados
-                                        where contratos.id_contratos_empleados.Equals(codigo)
-                                        select contratos).ToList();
+                    var editarContrato = (from contratos in linqConect.contratos_empleados
+                                          where contratos.id_contratos_empleados.Equals(codigo)
+                                          select contratos).ToList();
                     editarContrato[0].nombre_contrato = nombre;
                     editarContrato[0].descripcion_contrato = descripcion;
                     editarContrato[0].sueldo_contrato = sueldo;
@@ -110,6 +110,30 @@ namespace Datos
                 {
                     transa.Dispose();
                     return false;
+                }
+            }
+        }
+
+        public void guardarHistorial(string dpi, string conceptoH)
+        {
+            using (TransactionScope transa = new TransactionScope())
+            {
+                try
+                {
+                    Historial nuevoIngreso = new Historial
+                    {
+                        dpi_empleado = dpi,
+                        concepto = conceptoH, 
+                        fecha_realizado=DateTime.Now
+
+                    };
+                    linqConect.Historial.InsertOnSubmit(nuevoIngreso);
+                    linqConect.SubmitChanges();
+                    transa.Complete();
+
+                }
+                catch {
+                    transa.Dispose();
                 }
             }
         }

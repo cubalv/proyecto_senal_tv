@@ -71,6 +71,43 @@ namespace Datos.ContratosClientes
                 }
             }
         }
+        public bool agregarMisionPorPlan(int codigoContrato)
+        {
+            using (TransactionScope transa = new TransactionScope())
+            {
+                try
+                {
+                    solicitudes_de_contrato nuevaSolicitud = new solicitudes_de_contrato
+                    {
+                        fecha_solicitud = DateTime.Now,
+                        id_contrato_cliente_plan = codigoContrato,
+                        total_pago = 150,
+                        estado_solicitud = true,
+                        concepto_solicitud = "Revision"
+                    };
+                    linqConect.solicitudes_de_contrato.InsertOnSubmit(nuevaSolicitud);
+                    linqConect.SubmitChanges();
+                    encabezado_misiones nuevaMision = new encabezado_misiones
+                    {
+                        fecha_creacion = DateTime.Now,
+                        concepto_mision = "Revision del servicio",
+                        fecha_programada = DateTime.Now,
+                        estado_mision = true,
+                        id_solicitudes_de_contrato = nuevaSolicitud.id_solicitudes_de_contrato,
+                        estado_asignacion = false,
+                    };
+                    linqConect.encabezado_misiones.InsertOnSubmit(nuevaMision);
+                    linqConect.SubmitChanges();
+                    transa.Complete();
+                    return true;
+                }
+                catch
+                {
+                    transa.Dispose();
+                    return false;
+                }
+            }
+        }
         public bool guardarContratoNuevoConInstalacionZona(string dpi, int codigoPlan, int codigoZona, string direccionInstalacion, string direccionCobro, string nit, string detallesContrato, decimal precioMensual, decimal precioInstalacion)
         {
             using (TransactionScope transa = new TransactionScope())
@@ -160,5 +197,48 @@ namespace Datos.ContratosClientes
             }
         }
 
+        public bool misionDarDeBaja(int codigoContrato)
+        {
+            using (TransactionScope transa = new TransactionScope())
+            {
+                try
+                {
+                    solicitudes_de_contrato nuevaSolicitud = new solicitudes_de_contrato
+                    {
+                        fecha_solicitud = DateTime.Now,
+                        id_contrato_cliente_plan = codigoContrato,
+                        total_pago = 150,
+                        estado_solicitud = true,
+                        concepto_solicitud = "Dar de baja el servicio"
+                    };
+                    linqConect.solicitudes_de_contrato.InsertOnSubmit(nuevaSolicitud);
+                    linqConect.SubmitChanges();
+                    encabezado_misiones nuevaMision = new encabezado_misiones
+                    {
+                        fecha_creacion = DateTime.Now,
+                        concepto_mision = "Dar de baja el servicio",
+                        fecha_programada = DateTime.Now,
+                        estado_mision = true,
+                        id_solicitudes_de_contrato = nuevaSolicitud.id_solicitudes_de_contrato,
+                        estado_asignacion = false,
+                    };
+                    linqConect.encabezado_misiones.InsertOnSubmit(nuevaMision);
+                    linqConect.SubmitChanges();
+
+                    var contratoDeBaja = (from contrat in linqConect.contrato_cliente_plan
+                                         where contrat.id_contrato_cliente_plan.Equals(codigoContrato)
+                                         select contrat).FirstOrDefault();
+                    contratoDeBaja.estado_contrato = false;
+                    linqConect.SubmitChanges();
+                    transa.Complete();
+                    return true;
+                }
+                catch
+                {
+                    transa.Dispose();
+                    return false;
+                }
+            }
+        }
     }
 }

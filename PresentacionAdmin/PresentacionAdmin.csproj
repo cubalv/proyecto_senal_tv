@@ -44,6 +44,7 @@
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -78,6 +79,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -99,12 +101,56 @@
     <Compile Include="Reportes\contratoNuevoCliente\ContratoClienteViewer.Designer.cs">
       <DependentUpon>ContratoClienteViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\facturaPrecioAgregado\facturaViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\facturaPrecioAgregado\facturaViewer.Designer.cs">
+      <DependentUpon>facturaViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\morosos\formMorososViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\morosos\formMorososViewer.Designer.cs">
+      <DependentUpon>formMorososViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\morosos\morososObj.cs" />
+    <Compile Include="Reportes\reportesInicio\formReportePopZonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\reportesInicio\formReportePopZonas.Designer.cs">
+      <DependentUpon>formReportePopZonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\reportesInicio\reportePorZonasObj.cs" />
+    <Compile Include="Reportes\reportesInicio\reporteZonasViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\reportesInicio\reporteZonasViewer.Designer.cs">
+      <DependentUpon>reporteZonasViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\Administracion\formHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Administracion\formHistorial.Designer.cs">
+      <DependentUpon>formHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Clientes\formClienteNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Clientes\formClienteNuevo.Designer.cs">
       <DependentUpon>formClienteNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContratosClientes\formAdministarContratosClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ContratosClientes\formAdministarContratosClientes.Designer.cs">
+      <DependentUpon>formAdministarContratosClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContratosClientes\formMorosos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ContratosClientes\formMorosos.Designer.cs">
+      <DependentUpon>formMorosos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContratosClientes\formNuevoContratoCliente.cs">
       <SubType>Form</SubType>
@@ -129,6 +175,12 @@
     </Compile>
     <Compile Include="UI\Empleados\formNuevoEmpleado.Designer.cs">
       <DependentUpon>formNuevoEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\formEstadisticasInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\formEstadisticasInicio.Designer.cs">
+      <DependentUpon>formEstadisticasInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Inicio.cs">
       <SubType>Form</SubType>
@@ -199,8 +251,33 @@
       <DependentUpon>ContratoClienteViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\contratoNuevoCliente\ContratoNuevo.rdlc" />
+    <EmbeddedResource Include="Reportes\facturaPrecioAgregado\facturaAgregada.rdlc" />
+    <EmbeddedResource Include="Reportes\facturaPrecioAgregado\facturaViewer.resx">
+      <DependentUpon>facturaViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\morosos\formMorososViewer.resx">
+      <DependentUpon>formMorososViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\morosos\reporteMorosos.rdlc" />
+    <EmbeddedResource Include="Reportes\reportesInicio\formReportePopZonas.resx">
+      <DependentUpon>formReportePopZonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportesInicio\reporteZonas.rdlc" />
+    <EmbeddedResource Include="Reportes\reportesInicio\reporteZonasViewer.resx">
+      <DependentUpon>reporteZonasViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportesInicio\reportZonas.rdlc" />
+    <EmbeddedResource Include="UI\Administracion\formHistorial.resx">
+      <DependentUpon>formHistorial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Clientes\formClienteNuevo.resx">
       <DependentUpon>formClienteNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ContratosClientes\formAdministarContratosClientes.resx">
+      <DependentUpon>formAdministarContratosClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ContratosClientes\formMorosos.resx">
+      <DependentUpon>formMorosos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ContratosClientes\formNuevoContratoCliente.resx">
       <DependentUpon>formNuevoContratoCliente.cs</DependentUpon>
@@ -213,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Empleados\formNuevoEmpleado.resx">
       <DependentUpon>formNuevoEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\formEstadisticasInicio.resx">
+      <DependentUpon>formEstadisticasInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -242,6 +322,8 @@
       <DependentUpon>formZonas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PresentacionAdmin.Reportes.morosos.morososObj.datasource" />
+    <None Include="Properties\DataSources\PresentacionAdmin.Reportes.reportesInicio.reportePorZonasObj.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -286,5 +368,6 @@
       <Name>Negociacion</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

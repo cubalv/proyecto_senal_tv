@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Comun;
 using System.Linq.Expressions;
+using Negociacion;
 
 namespace PresentacionAdmin.UI
 {
@@ -103,6 +104,44 @@ namespace PresentacionAdmin.UI
                 }
             }
         }
+        private void btnFacturas_Click_1(object sender, EventArgs e)
+        {
+            if (formAbiertoActual == null)
+            {
+                activarbutton(sender, panelMenuAdmin);
+                abrirHijo(new UI.Administracion.formHistorial());
+            }
+            else
+            {
+                if (formAbiertoActual.Name != "formHistorial")
+                {
+                    if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
+                    {
+                        activarbutton(sender, panelMenuAdmin);
+                        abrirHijo(new UI.Administracion.formHistorial());
+                    }
+                }
+            }
+        }
+        private void btnAsignarMision_Click(object sender, EventArgs e)
+        {
+            if (formAbiertoActual == null)
+            {
+                activarbutton(sender, panelEmpleadoMenu);
+                abrirHijo(new UI.Misiones.formAsignarMisionesEmpleado());
+            }
+            else
+            {
+                if (formAbiertoActual.Name != "formAsignarMisionesEmpleado")
+                {
+                    if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
+                    {
+                        activarbutton(sender, panelEmpleadoMenu);
+                        abrirHijo(new UI.Misiones.formAsignarMisionesEmpleado());
+                    }
+                }
+            }
+        }
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
             if (formAbiertoActual == null)
@@ -143,6 +182,25 @@ namespace PresentacionAdmin.UI
             }
         }
 
+        private void btnListaContratos_Click_1(object sender, EventArgs e)
+        {
+            if (formAbiertoActual == null)
+            {
+                activarbutton(sender, panelContratosClientes);
+                abrirHijo(new UI.ContratosClientes.formMorosos());
+            }
+            else
+            {
+                if (formAbiertoActual.Name != "formMorosos")
+                {
+                    if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
+                    {
+                        activarbutton(sender, panelContratosClientes);
+                        abrirHijo(new UI.ContratosClientes.formMorosos());
+                    }
+                }
+            }
+        }
         private void btnAdministrarServicios_Click(object sender, EventArgs e)
         {
             if (formAbiertoActual == null)
@@ -225,7 +283,7 @@ namespace PresentacionAdmin.UI
 
             if (formAbiertoActual == null)
             {
-                activarbutton(sender, panelMenuAdmin);
+                activarbutton(sender, panelServicesMenu);
                 abrirHijo(new UI.Servicios.formAdministrarPlanes());
             }
             else
@@ -234,7 +292,7 @@ namespace PresentacionAdmin.UI
                 {
                     if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
                     {
-                        activarbutton(sender, panelMenuAdmin);
+                        activarbutton(sender, panelServicesMenu);
                         abrirHijo(new UI.Servicios.formAdministrarPlanes());
                     }
                 }
@@ -292,7 +350,22 @@ namespace PresentacionAdmin.UI
 
         private void btnListadoClienteContrato_Click(object sender, EventArgs e)
         {
-            activarbutton(sender, panelContratosClientes);
+            if (formAbiertoActual == null)
+            {
+                activarbutton(sender, panelContratosClientes);
+                abrirHijo(new UI.ContratosClientes.formAdministarContratosClientes());
+            }
+            else
+            {
+                if (formAbiertoActual.Name != "formAdministarContratosClientes")
+                {
+                    if (confirmarAbrirForm("¿Seguro que desea salir?\nSe perderan los datos no guardados."))
+                    {
+                        activarbutton(sender, panelContratosClientes);
+                        abrirHijo(new UI.ContratosClientes.formAdministarContratosClientes());
+                    }
+                }
+            }
         }
 
         private void btnContratarEmpleado_Click(object sender, EventArgs e)
@@ -413,8 +486,17 @@ namespace PresentacionAdmin.UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = $"{Comun.Cache.CacheLogin.nombre} {Comun.Cache.CacheLogin.apellido}";
+            negociosClase auxFacturas = new negociosClase();
+            auxFacturas.administrarFacturas();
+
+            abrirHijo(new UI.formEstadisticasInicio());
+
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            abrirHijo(new UI.formEstadisticasInicio());
+        }
         private void btnMin_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;

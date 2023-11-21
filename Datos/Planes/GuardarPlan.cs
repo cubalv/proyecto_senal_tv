@@ -25,7 +25,8 @@ namespace Datos.Planes
                         precio_plan = precioMens,
                         precio_instalacion = precioIns,
                         minimo_meses_contratacion = duracion,
-                        estado_plan = true
+                        estado_plan = true,
+                        
                     };
                     linqConect.planes.InsertOnSubmit(nuevoPlan);
                     linqConect.SubmitChanges();

@@ -43,5 +43,16 @@ namespace Datos.Properties {
                 return ((string)(this["ProyectoFinalDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-HJH9G5O;Initial Catalog=ProyectoFinalDB;Persist Security Info" +
+            "=True;User ID=sa;Password=abc123")]
+        public string ProyectoFinalDBConnectionString1 {
+            get {
+                return ((string)(this["ProyectoFinalDBConnectionString1"]));
+            }
+        }
     }
 }

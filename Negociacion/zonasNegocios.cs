@@ -41,5 +41,16 @@ namespace Negociacion
         {
             return SaveZonas.editarDisponibilidades(codigoZona, servicios);
         }
+
+        public DataTable listadoZonasConsMasServicio(int codigoMuni)
+        {
+            return ReadZonas.listadoZonasConsMasServicio(codigoMuni);
+        }
+
+
+        public DataTable listadoPopularidaPlanes()
+        {
+            return ReadZonas.listadoPopularidaPlanes();
+        }
     }
 }

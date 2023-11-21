@@ -70,6 +70,8 @@ namespace PresentacionAdmin.UI.Empleados
                     {
                         MessageBox.Show("Se ha contratado al empleado exitosamente", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se contrato un nuevo empleado {tbDpi.Text}");
                         limpiar();
                     }
                     else

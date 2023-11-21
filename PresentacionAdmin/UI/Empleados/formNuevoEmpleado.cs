@@ -96,6 +96,8 @@ namespace PresentacionAdmin.UI.Empleados
                     case 2:
                         MessageBox.Show("El empleado ha sido agregado exitosamente.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se agrego al empleado {tbDpi.Text} al sistema");
                         limpiar();
                         gridControl1.DataSource = NC.dtEmpleados();
                         break;
@@ -141,6 +143,8 @@ namespace PresentacionAdmin.UI.Empleados
                 {
                     MessageBox.Show("Los datos del empleado se han actualizado con exito", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se editaron los datos del empleado {tbDpi.Text}");
                     limpiar();
                     gridControl1.DataSource = NC.dtEmpleados();
 

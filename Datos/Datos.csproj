@@ -52,7 +52,10 @@
     <Compile Include="Cuotas\LeerCuotas.cs" />
     <Compile Include="Empleados\GuardarEmpleados.cs" />
     <Compile Include="Empleados\LeerEmpleados.cs" />
+    <Compile Include="Facturas\GuardarFacturas.cs" />
+    <Compile Include="Facturas\LeerFacturas.cs" />
     <Compile Include="LeerDatos.cs" />
+    <Compile Include="Misiones\LeerMisiones.cs" />
     <Compile Include="Planes\GuardarPlan.cs" />
     <Compile Include="Planes\LeerPlan.cs" />
     <Compile Include="Servicios\GuardarServicios.cs" />

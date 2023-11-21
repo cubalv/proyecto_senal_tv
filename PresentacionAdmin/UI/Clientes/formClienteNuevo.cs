@@ -72,7 +72,7 @@ namespace PresentacionAdmin.UI.Clientes
                 tbCorreo.Text = dt.Rows[0][5].ToString();
             }
         }
-
+        negociosClase Historial = new negociosClase();
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int resultado = Clientes.guardarCliente(tbDpi.Text, tbNombre.Text, tbApellido.Text, tbTel1.Text, tbTel2.Text, tbDireccion.Text, tbCorreo.Text);
@@ -86,6 +86,7 @@ namespace PresentacionAdmin.UI.Clientes
                 case 1:
                     MessageBox.Show("El cliente ha sido agregado exitosamente.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Cliente ingresado al sistema {tbDpi.Text} {tbNombre.Text} {tbApellido.Text}");
                     limpiar();
                     gridControl1.DataSource = Clientes.dtClientes();
                     break;
@@ -103,6 +104,7 @@ namespace PresentacionAdmin.UI.Clientes
             {
                 MessageBox.Show("Se han actualizado los datos con exito", "Exito",
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se editaron los datos del cliente {tbDpi.Text} {tbNombre.Text} {tbApellido.Text}");
                 limpiar();
                 gridControl1.DataSource = Clientes.dtClientes();
             }

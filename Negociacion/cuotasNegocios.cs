@@ -37,5 +37,15 @@ namespace Negociacion
         {
             return readCuotas.listadoCuotas(estado);
         }
+        public decimal costoDarDeBaja()
+        {
+            decimal costo = Convert.ToDecimal(readCuotas.datosCuotas(3).Rows[0][3]);
+            return costo;
+        }
+        public decimal costoCambiarDireccion()
+        {
+            decimal costo = Convert.ToDecimal(readCuotas.datosCuotas(2).Rows[0][3]);
+            return costo;
+        }
     }
 }

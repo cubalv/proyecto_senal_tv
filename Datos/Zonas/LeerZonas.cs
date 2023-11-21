@@ -87,5 +87,51 @@ namespace Datos.Zonas
             catch { }
             return dt;
         }
+        public DataTable listadoZonasConsMasServicio(int codigoMuni)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Zona");
+            dt.Columns.Add("CantidadServicios");
+
+            try
+            {
+
+                var Repeticiones = linqConect.contrato_cliente_plan
+                    .Where(y => y.zonas.id_muni.Equals(codigoMuni))
+                   .GroupBy(p => p.zonas.nombre_zona)
+                   .Select(g => new { Zona = g.Key, Repeticiones = g.Count() });
+
+                foreach (var item in Repeticiones)
+                {
+                    dt.Rows.Add(item.Zona, item.Repeticiones);
+                }
+
+            }
+            catch { }
+
+            return dt;
+        }
+        public DataTable listadoPopularidaPlanes()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Plan");
+            dt.Columns.Add("No. Contrataciones");
+
+            try
+            {
+                var listado = linqConect.contrato_cliente_plan
+                             .GroupBy(g => g.planes.nombre_plan)
+                             .Select(s => new { Plan= s.Key, Repet = s.Count() });
+
+                foreach (var item in listado)
+                {
+                    dt.Rows.Add(item.Plan, item.Repet);
+                }
+
+            }
+            catch { }
+
+            return dt;
+        }
     }
 }

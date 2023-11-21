@@ -97,6 +97,8 @@ namespace PresentacionAdmin.UI.Servicios
                     if (Servicios.guardarServicio(tbNombreServicio.Text, tbDescripcionServicio.Text))
                     {
                         gridControl1.DataSource = Servicios.listadoServicios(true);
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se agrego un nuevo servicio {tbNombreServicio.Text}");
                         limpiar();
                         MessageBox.Show("Se ha agregado exitosamente el servicio.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,6 +119,8 @@ namespace PresentacionAdmin.UI.Servicios
                             gridControl1.DataSource = Servicios.listadoServicios(true);
                             rjToggleButton1.Checked = true;
 
+                            negociosClase historial = new negociosClase();
+                            historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se rehabilito el servicio {tbNombreServicio.Text}");
                             limpiar();
                             MessageBox.Show("Se ha habilitado exitosamente el servicio.", "Exito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -156,6 +160,8 @@ namespace PresentacionAdmin.UI.Servicios
                 if (Servicios.editarServicio(codigo, nombre, desc))
                 {
                     gridControl1.DataSource = Servicios.listadoServicios(true);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se le edito el servicio {tbNombreServicio.Text}");
                     limpiar();
                     MessageBox.Show("Se ha editado exitosamente el servicio.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -184,6 +190,8 @@ namespace PresentacionAdmin.UI.Servicios
                     int codigo = Convert.ToInt32(lblCodigo.Text);
                     if (Servicios.deshabilitaServicio(codigo))
                     {
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se deshabilito el servicio {tbNombreServicio.Text}");
                         MessageBox.Show("Se ha deshabilitado exitosamente el servicio.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

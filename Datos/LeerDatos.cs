@@ -80,6 +80,30 @@ namespace Datos
             catch { }
             return dt;
         }
-
+        public DataTable historial()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Codigo");
+            dt.Columns.Add("Responsable");
+            dt.Columns.Add("Concepto");
+            dt.Columns.Add("Fecha");
+            try
+            {
+                var histo = from Histor in linqConect.Historial
+                            select new
+                            {
+                                codigo=Histor.id_historial,
+                                persona = $"{Histor.empleados.nombre_empleado} {Histor.empleados.apellidos_empleado}",
+                                concepto=Histor.concepto,
+                                fecha=Histor.fecha_realizado
+                            };
+                foreach(var item in histo)
+                {
+                    dt.Rows.Add(item.codigo, item.persona, item.concepto, item.fecha);
+                }
+            }
+            catch { }
+            return dt;
+        }
     }
 }

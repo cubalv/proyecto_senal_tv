@@ -48,7 +48,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(331, 40);
+            this.label1.Location = new System.Drawing.Point(331, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(373, 58);
             this.label1.TabIndex = 5;
@@ -84,7 +84,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 348);
+            this.panel1.Size = new System.Drawing.Size(325, 348);
             this.panel1.TabIndex = 9;
             // 
             // pictureBox1
@@ -105,7 +105,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(77)))), ((int)(((byte)(128)))));
             this.label3.Location = new System.Drawing.Point(12, 262);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(267, 58);
+            this.label3.Size = new System.Drawing.Size(274, 72);
             this.label3.TabIndex = 6;
             this.label3.Text = "Señal Tv";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

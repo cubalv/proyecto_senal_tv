@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
+using Datos.Facturas;
 
 namespace Negociacion
 {
@@ -14,6 +15,7 @@ namespace Negociacion
         ValidacionesDatos ValData = new ValidacionesDatos();
         LeerDatos ReadData= new LeerDatos();
         GuardarDatos SaveData= new GuardarDatos();
+        GuardarFacturas saveFacturas = new GuardarFacturas();
         public bool loginVerificacion(string user, string password)
         {
             return ValData.ValidacionCredencialesLogin(user, password);
@@ -42,6 +44,26 @@ namespace Negociacion
             return variables;
         }
 
-
+        public int validarTecnico (string user, string pswrd)
+        {
+            return ValData.validacionTecnico(user, pswrd);
+        }
+        public void administrarFacturas()
+        {
+            saveFacturas.crearFacturas();
+            saveFacturas.calcularMora();
+        }
+        public bool verificaCliente(string user, string pswrd) 
+        {
+            return ValData.validacionCliente(user, pswrd);
+        }
+        public DataTable historial()
+        {
+            return ReadData.historial();
+        }
+        public void guardarHistorial(string dpi, string concepto)
+        {
+            SaveData.guardarHistorial(dpi, concepto);
+        }
     }
 }

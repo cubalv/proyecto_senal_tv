@@ -107,6 +107,8 @@ namespace PresentacionAdmin.UI.Servicios
                 {
                     if (Planes.editarDetallesPlan(Convert.ToInt32(lblCodigo.Text), idServicios))
                     {
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se editaron los servicios que ofrece el plan {tbNombrePlan.Text}");
                         MessageBox.Show("Se han guardado los cambios hechos a los detalles del plan.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

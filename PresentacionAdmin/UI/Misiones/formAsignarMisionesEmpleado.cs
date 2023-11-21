@@ -124,6 +124,9 @@ namespace PresentacionAdmin.UI.Misiones
                     {
                         MessageBox.Show("Se le han asignado exitosamente las misiones al empleado.", "Operacion exitosa",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se le asignaron unas misiones a los empleados");
                         limpiar();
                     }
                     else

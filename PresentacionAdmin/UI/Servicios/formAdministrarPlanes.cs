@@ -121,6 +121,8 @@ namespace PresentacionAdmin.UI.Servicios
                     if (Planes.guardarPlan(tbNombrePlan.Text, tbDescripcionPlan.Text, Convert.ToDecimal(tbCostoMensual.Text), Convert.ToDecimal(tbCostoInstalacion.Text), Convert.ToInt32(tbDuracionContrato.Text)))
                     {
                         gridControl1.DataSource = Planes.listadoPlanes(true);
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se agrego un nuevo plan {tbNombrePlan.Text}");
                         limpiar();
                         MessageBox.Show("Se ha agregado exitosamente el plan.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -140,6 +142,8 @@ namespace PresentacionAdmin.UI.Servicios
                             gridControl1.DataSource = Planes.listadoPlanes(true);
                             rjToggleButton1.Checked = true;
 
+                            negociosClase historial = new negociosClase();
+                            historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se rehabilito el plan {tbNombrePlan.Text}");
                             limpiar();
                             MessageBox.Show("Se ha habilitado exitosamente el plan.", "Exito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,6 +177,8 @@ namespace PresentacionAdmin.UI.Servicios
                 if (Planes.editarPlan(codigo, nombre, desc,costoMens,costoIns, duracion))
                 {
                     gridControl1.DataSource = Planes.listadoPlanes(true);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se edito el plan {tbNombrePlan.Text}");
                     limpiar();
                     MessageBox.Show("Se ha editado exitosamente el Plan.", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -201,6 +207,8 @@ namespace PresentacionAdmin.UI.Servicios
                     int codigo = Convert.ToInt32(lblcodigo.Text);
                     if (Planes.deshabilitarPlan(codigo))
                     {
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se deshabilito el plan {tbNombrePlan.Text}");
                         MessageBox.Show("Se ha deshabilitado exitosamente el plan.", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 

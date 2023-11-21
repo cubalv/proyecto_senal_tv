@@ -74,6 +74,8 @@ namespace PresentacionAdmin.UI.Zonas
                     int codigo = Convert.ToInt32(ddlMuni.SelectedValue);
                     if (Zonas.guardarZona(tbNombreZona.Text, codigo))
                     {
+                        negociosClase historial = new negociosClase();
+                        historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se agrego una nueva zona en el municipio de {ddlMuni.Text}");
                         MessageBox.Show("Se ha guardado con exito la zona", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         gridControl1.DataSource = Zonas.listadoZonas(codigo); 
@@ -100,6 +102,8 @@ namespace PresentacionAdmin.UI.Zonas
                 int codigoMuni = Convert.ToInt32(ddlMuni.SelectedValue);
                 if (Zonas.editarZona(codigo,tbNombreZona.Text, codigoMuni))
                 {
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se editó la zona {tbNombreZona.Text}");
                     MessageBox.Show("Se ha editado con exito la zona", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     gridControl1.DataSource = Zonas.listadoZonas(codigoMuni);

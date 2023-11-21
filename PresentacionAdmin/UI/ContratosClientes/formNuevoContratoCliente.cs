@@ -185,6 +185,8 @@ namespace PresentacionAdmin.UI.ContratosClientes
                 {
                     MessageBox.Show("Se ha creado la orden de instalacion y el contrato exitosamente","Operacion exitosa",
                         MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se creo un nuevo contrato");
                 }
                 else
                 {
@@ -198,6 +200,8 @@ namespace PresentacionAdmin.UI.ContratosClientes
                 {
                     MessageBox.Show("Se ha creado la orden de instalacion y el contrato exitosamente", "Operacion exitosa",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    negociosClase historial = new negociosClase();
+                    historial.guardarHistorial(Comun.Cache.CacheLogin.dpi_usuario, $"Se creo un nuevo contrato y se asigno una nueva instlacion en la zona {tbNombreZona.Text} en {ddlMuni.Text}");
                 }
                 else
                 {
@@ -227,6 +231,11 @@ namespace PresentacionAdmin.UI.ContratosClientes
                 NuevoContrato.ShowDialog();
                 btnCompletar.Enabled = true;
             }
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

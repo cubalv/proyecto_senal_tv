@@ -152,6 +152,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1267, 596);
             this.panel6.TabIndex = 63;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // btnImprimir
             // 
@@ -1098,7 +1099,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "formNuevoContratoCliente";
-            this.Text = "formNuevoContratoCliente";
+            this.Text = "Nuevo Contrato";
             this.Load += new System.EventHandler(this.formNuevoContratoCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -47,6 +47,10 @@
     <Compile Include="contratoNegocios.cs" />
     <Compile Include="cuotasNegocios.cs" />
     <Compile Include="empleadoNegocios.cs" />
+    <Compile Include="facturasNegocios.cs" />
+    <Compile Include="informes\datosFactura.cs" />
+    <Compile Include="informes\detallesMisionInforme.cs" />
+    <Compile Include="misionesNegocios.cs" />
     <Compile Include="negociosClase.cs" />
     <Compile Include="planNegocios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

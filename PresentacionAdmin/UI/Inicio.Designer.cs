@@ -43,7 +43,6 @@
             this.btnAdminCuotas = new FontAwesome.Sharp.IconButton();
             this.btnAdminZonas = new FontAwesome.Sharp.IconButton();
             this.btnZonas = new FontAwesome.Sharp.IconButton();
-            this.btnListaContratos = new FontAwesome.Sharp.IconButton();
             this.btnNuevoContrato = new FontAwesome.Sharp.IconButton();
             this.btnAdministracion = new FontAwesome.Sharp.IconButton();
             this.panelServicesMenu = new System.Windows.Forms.Panel();
@@ -52,6 +51,7 @@
             this.btnAdministrarServicios = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.panelEmpleadoMenu = new System.Windows.Forms.Panel();
+            this.btnAsignarMision = new FontAwesome.Sharp.IconButton();
             this.btnContratarEmpleado = new FontAwesome.Sharp.IconButton();
             this.btnNuevoEmpleado = new FontAwesome.Sharp.IconButton();
             this.btnTrabajadores = new FontAwesome.Sharp.IconButton();
@@ -59,6 +59,11 @@
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.btnNuevoCliente = new FontAwesome.Sharp.IconButton();
             this.btnClientes = new FontAwesome.Sharp.IconButton();
+            this.panelContratosClientes = new System.Windows.Forms.Panel();
+            this.btnListaContratos = new FontAwesome.Sharp.IconButton();
+            this.btnListadoClienteContrato = new FontAwesome.Sharp.IconButton();
+            this.bntNuevoCntratoCiente = new FontAwesome.Sharp.IconButton();
+            this.btnContratarServicios = new FontAwesome.Sharp.IconButton();
             this.panelUsuarioMenu = new System.Windows.Forms.Panel();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.panelUsuario = new System.Windows.Forms.Panel();
@@ -66,10 +71,6 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.panelContratosClientes = new System.Windows.Forms.Panel();
-            this.btnListadoClienteContrato = new FontAwesome.Sharp.IconButton();
-            this.bntNuevoCntratoCiente = new FontAwesome.Sharp.IconButton();
-            this.btnContratarServicios = new FontAwesome.Sharp.IconButton();
             this.panelTitulo.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,10 +79,10 @@
             this.panelServicesMenu.SuspendLayout();
             this.panelEmpleadoMenu.SuspendLayout();
             this.panelClienteMenu.SuspendLayout();
+            this.panelContratosClientes.SuspendLayout();
             this.panelUsuarioMenu.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.panelContratosClientes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitulo
@@ -98,7 +99,7 @@
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1262, 90);
+            this.panelTitulo.Size = new System.Drawing.Size(1262, 141);
             this.panelTitulo.TabIndex = 0;
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
             // 
@@ -120,7 +121,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(103, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(253, 19);
+            this.label2.Size = new System.Drawing.Size(298, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "¡Tú mejor opción en comunicación!";
             // 
@@ -131,7 +132,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(103, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 22);
+            this.label1.Size = new System.Drawing.Size(100, 26);
             this.label1.TabIndex = 8;
             this.label1.Text = "Señal TV";
             // 
@@ -213,6 +214,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panelMenu
             // 
@@ -231,9 +233,9 @@
             this.panelMenu.Controls.Add(this.panelUsuarioMenu);
             this.panelMenu.Controls.Add(this.panelUsuario);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 90);
+            this.panelMenu.Location = new System.Drawing.Point(0, 141);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(235, 602);
+            this.panelMenu.Size = new System.Drawing.Size(248, 551);
             this.panelMenu.TabIndex = 1;
             // 
             // panelMenuAdmin
@@ -242,12 +244,11 @@
             this.panelMenuAdmin.Controls.Add(this.btnAdminCuotas);
             this.panelMenuAdmin.Controls.Add(this.btnAdminZonas);
             this.panelMenuAdmin.Controls.Add(this.btnZonas);
-            this.panelMenuAdmin.Controls.Add(this.btnListaContratos);
             this.panelMenuAdmin.Controls.Add(this.btnNuevoContrato);
             this.panelMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenuAdmin.Location = new System.Drawing.Point(0, 903);
+            this.panelMenuAdmin.Location = new System.Drawing.Point(0, 1058);
             this.panelMenuAdmin.Name = "panelMenuAdmin";
-            this.panelMenuAdmin.Size = new System.Drawing.Size(218, 350);
+            this.panelMenuAdmin.Size = new System.Drawing.Size(227, 275);
             this.panelMenuAdmin.TabIndex = 14;
             this.panelMenuAdmin.Visible = false;
             // 
@@ -262,15 +263,16 @@
             this.btnFacturas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFacturas.IconSize = 40;
             this.btnFacturas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFacturas.Location = new System.Drawing.Point(0, 250);
+            this.btnFacturas.Location = new System.Drawing.Point(0, 220);
             this.btnFacturas.Name = "btnFacturas";
             this.btnFacturas.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnFacturas.Size = new System.Drawing.Size(218, 50);
+            this.btnFacturas.Size = new System.Drawing.Size(227, 55);
             this.btnFacturas.TabIndex = 13;
-            this.btnFacturas.Text = "Facturas";
+            this.btnFacturas.Text = "Historial";
             this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFacturas.UseVisualStyleBackColor = false;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click_1);
             // 
             // btnAdminCuotas
             // 
@@ -283,10 +285,10 @@
             this.btnAdminCuotas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdminCuotas.IconSize = 40;
             this.btnAdminCuotas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminCuotas.Location = new System.Drawing.Point(0, 200);
+            this.btnAdminCuotas.Location = new System.Drawing.Point(0, 165);
             this.btnAdminCuotas.Name = "btnAdminCuotas";
             this.btnAdminCuotas.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnAdminCuotas.Size = new System.Drawing.Size(218, 50);
+            this.btnAdminCuotas.Size = new System.Drawing.Size(227, 55);
             this.btnAdminCuotas.TabIndex = 12;
             this.btnAdminCuotas.Text = "Administrar Cuotas";
             this.btnAdminCuotas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,10 +307,10 @@
             this.btnAdminZonas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdminZonas.IconSize = 40;
             this.btnAdminZonas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminZonas.Location = new System.Drawing.Point(0, 150);
+            this.btnAdminZonas.Location = new System.Drawing.Point(0, 110);
             this.btnAdminZonas.Name = "btnAdminZonas";
             this.btnAdminZonas.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnAdminZonas.Size = new System.Drawing.Size(218, 50);
+            this.btnAdminZonas.Size = new System.Drawing.Size(227, 55);
             this.btnAdminZonas.TabIndex = 9;
             this.btnAdminZonas.Text = "Administrar Zonas";
             this.btnAdminZonas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -327,38 +329,16 @@
             this.btnZonas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnZonas.IconSize = 40;
             this.btnZonas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZonas.Location = new System.Drawing.Point(0, 100);
+            this.btnZonas.Location = new System.Drawing.Point(0, 55);
             this.btnZonas.Name = "btnZonas";
             this.btnZonas.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnZonas.Size = new System.Drawing.Size(218, 50);
+            this.btnZonas.Size = new System.Drawing.Size(227, 55);
             this.btnZonas.TabIndex = 7;
             this.btnZonas.Text = "Agregar Zonas";
             this.btnZonas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnZonas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnZonas.UseVisualStyleBackColor = false;
             this.btnZonas.Click += new System.EventHandler(this.btnZonas_Click);
-            // 
-            // btnListaContratos
-            // 
-            this.btnListaContratos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnListaContratos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnListaContratos.FlatAppearance.BorderSize = 0;
-            this.btnListaContratos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaContratos.IconChar = FontAwesome.Sharp.IconChar.FileCircleExclamation;
-            this.btnListaContratos.IconColor = System.Drawing.Color.Black;
-            this.btnListaContratos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnListaContratos.IconSize = 40;
-            this.btnListaContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaContratos.Location = new System.Drawing.Point(0, 50);
-            this.btnListaContratos.Name = "btnListaContratos";
-            this.btnListaContratos.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnListaContratos.Size = new System.Drawing.Size(218, 50);
-            this.btnListaContratos.TabIndex = 3;
-            this.btnListaContratos.Text = "Listado Contratos";
-            this.btnListaContratos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnListaContratos.UseVisualStyleBackColor = false;
-            this.btnListaContratos.Click += new System.EventHandler(this.btnListaContratos_Click);
             // 
             // btnNuevoContrato
             // 
@@ -374,7 +354,7 @@
             this.btnNuevoContrato.Location = new System.Drawing.Point(0, 0);
             this.btnNuevoContrato.Name = "btnNuevoContrato";
             this.btnNuevoContrato.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnNuevoContrato.Size = new System.Drawing.Size(218, 50);
+            this.btnNuevoContrato.Size = new System.Drawing.Size(227, 55);
             this.btnNuevoContrato.TabIndex = 2;
             this.btnNuevoContrato.Text = "Nuevo Contrato";
             this.btnNuevoContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -392,10 +372,10 @@
             this.btnAdministracion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdministracion.IconSize = 40;
             this.btnAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministracion.Location = new System.Drawing.Point(0, 853);
+            this.btnAdministracion.Location = new System.Drawing.Point(0, 1008);
             this.btnAdministracion.Name = "btnAdministracion";
             this.btnAdministracion.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.btnAdministracion.Size = new System.Drawing.Size(218, 50);
+            this.btnAdministracion.Size = new System.Drawing.Size(227, 50);
             this.btnAdministracion.TabIndex = 13;
             this.btnAdministracion.Text = "Administracion";
             this.btnAdministracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -409,9 +389,9 @@
             this.panelServicesMenu.Controls.Add(this.btnPlanes);
             this.panelServicesMenu.Controls.Add(this.btnAdministrarServicios);
             this.panelServicesMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelServicesMenu.Location = new System.Drawing.Point(0, 703);
+            this.panelServicesMenu.Location = new System.Drawing.Point(0, 843);
             this.panelServicesMenu.Name = "panelServicesMenu";
-            this.panelServicesMenu.Size = new System.Drawing.Size(218, 150);
+            this.panelServicesMenu.Size = new System.Drawing.Size(227, 165);
             this.panelServicesMenu.TabIndex = 12;
             this.panelServicesMenu.Visible = false;
             // 
@@ -426,10 +406,10 @@
             this.btnAdminPlanes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdminPlanes.IconSize = 40;
             this.btnAdminPlanes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminPlanes.Location = new System.Drawing.Point(0, 100);
+            this.btnAdminPlanes.Location = new System.Drawing.Point(0, 110);
             this.btnAdminPlanes.Name = "btnAdminPlanes";
             this.btnAdminPlanes.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnAdminPlanes.Size = new System.Drawing.Size(218, 50);
+            this.btnAdminPlanes.Size = new System.Drawing.Size(227, 55);
             this.btnAdminPlanes.TabIndex = 13;
             this.btnAdminPlanes.Text = "Administrar Planes";
             this.btnAdminPlanes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -448,10 +428,10 @@
             this.btnPlanes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPlanes.IconSize = 40;
             this.btnPlanes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlanes.Location = new System.Drawing.Point(0, 50);
+            this.btnPlanes.Location = new System.Drawing.Point(0, 55);
             this.btnPlanes.Name = "btnPlanes";
             this.btnPlanes.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnPlanes.Size = new System.Drawing.Size(218, 50);
+            this.btnPlanes.Size = new System.Drawing.Size(227, 55);
             this.btnPlanes.TabIndex = 12;
             this.btnPlanes.Text = "Agregar Planes";
             this.btnPlanes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -473,7 +453,7 @@
             this.btnAdministrarServicios.Location = new System.Drawing.Point(0, 0);
             this.btnAdministrarServicios.Name = "btnAdministrarServicios";
             this.btnAdministrarServicios.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnAdministrarServicios.Size = new System.Drawing.Size(218, 50);
+            this.btnAdministrarServicios.Size = new System.Drawing.Size(227, 55);
             this.btnAdministrarServicios.TabIndex = 11;
             this.btnAdministrarServicios.Text = "Administrar Servicios";
             this.btnAdministrarServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -492,10 +472,10 @@
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton9.IconSize = 40;
             this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton9.Location = new System.Drawing.Point(0, 653);
+            this.iconButton9.Location = new System.Drawing.Point(0, 793);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.iconButton9.Size = new System.Drawing.Size(218, 50);
+            this.iconButton9.Size = new System.Drawing.Size(227, 50);
             this.iconButton9.TabIndex = 11;
             this.iconButton9.Text = "Servicios";
             this.iconButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -505,14 +485,37 @@
             // 
             // panelEmpleadoMenu
             // 
+            this.panelEmpleadoMenu.Controls.Add(this.btnAsignarMision);
             this.panelEmpleadoMenu.Controls.Add(this.btnContratarEmpleado);
             this.panelEmpleadoMenu.Controls.Add(this.btnNuevoEmpleado);
             this.panelEmpleadoMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmpleadoMenu.Location = new System.Drawing.Point(0, 553);
+            this.panelEmpleadoMenu.Location = new System.Drawing.Point(0, 628);
             this.panelEmpleadoMenu.Name = "panelEmpleadoMenu";
-            this.panelEmpleadoMenu.Size = new System.Drawing.Size(218, 100);
+            this.panelEmpleadoMenu.Size = new System.Drawing.Size(227, 165);
             this.panelEmpleadoMenu.TabIndex = 8;
             this.panelEmpleadoMenu.Visible = false;
+            // 
+            // btnAsignarMision
+            // 
+            this.btnAsignarMision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAsignarMision.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAsignarMision.FlatAppearance.BorderSize = 0;
+            this.btnAsignarMision.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarMision.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
+            this.btnAsignarMision.IconColor = System.Drawing.Color.Black;
+            this.btnAsignarMision.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAsignarMision.IconSize = 40;
+            this.btnAsignarMision.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarMision.Location = new System.Drawing.Point(0, 110);
+            this.btnAsignarMision.Name = "btnAsignarMision";
+            this.btnAsignarMision.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
+            this.btnAsignarMision.Size = new System.Drawing.Size(227, 55);
+            this.btnAsignarMision.TabIndex = 5;
+            this.btnAsignarMision.Text = "Asignar Misiones";
+            this.btnAsignarMision.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarMision.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAsignarMision.UseVisualStyleBackColor = false;
+            this.btnAsignarMision.Click += new System.EventHandler(this.btnAsignarMision_Click);
             // 
             // btnContratarEmpleado
             // 
@@ -525,10 +528,10 @@
             this.btnContratarEmpleado.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnContratarEmpleado.IconSize = 40;
             this.btnContratarEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContratarEmpleado.Location = new System.Drawing.Point(0, 50);
+            this.btnContratarEmpleado.Location = new System.Drawing.Point(0, 55);
             this.btnContratarEmpleado.Name = "btnContratarEmpleado";
             this.btnContratarEmpleado.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnContratarEmpleado.Size = new System.Drawing.Size(218, 50);
+            this.btnContratarEmpleado.Size = new System.Drawing.Size(227, 55);
             this.btnContratarEmpleado.TabIndex = 4;
             this.btnContratarEmpleado.Text = "Contratar Empleados";
             this.btnContratarEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -550,7 +553,7 @@
             this.btnNuevoEmpleado.Location = new System.Drawing.Point(0, 0);
             this.btnNuevoEmpleado.Name = "btnNuevoEmpleado";
             this.btnNuevoEmpleado.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnNuevoEmpleado.Size = new System.Drawing.Size(218, 50);
+            this.btnNuevoEmpleado.Size = new System.Drawing.Size(227, 55);
             this.btnNuevoEmpleado.TabIndex = 3;
             this.btnNuevoEmpleado.Text = "Nuevo Empleado";
             this.btnNuevoEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -568,10 +571,10 @@
             this.btnTrabajadores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTrabajadores.IconSize = 40;
             this.btnTrabajadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrabajadores.Location = new System.Drawing.Point(0, 503);
+            this.btnTrabajadores.Location = new System.Drawing.Point(0, 578);
             this.btnTrabajadores.Name = "btnTrabajadores";
             this.btnTrabajadores.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.btnTrabajadores.Size = new System.Drawing.Size(218, 50);
+            this.btnTrabajadores.Size = new System.Drawing.Size(227, 50);
             this.btnTrabajadores.TabIndex = 7;
             this.btnTrabajadores.Text = "Empleados";
             this.btnTrabajadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -584,9 +587,9 @@
             this.panelClienteMenu.Controls.Add(this.iconButton5);
             this.panelClienteMenu.Controls.Add(this.btnNuevoCliente);
             this.panelClienteMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClienteMenu.Location = new System.Drawing.Point(0, 403);
+            this.panelClienteMenu.Location = new System.Drawing.Point(0, 468);
             this.panelClienteMenu.Name = "panelClienteMenu";
-            this.panelClienteMenu.Size = new System.Drawing.Size(218, 100);
+            this.panelClienteMenu.Size = new System.Drawing.Size(227, 110);
             this.panelClienteMenu.TabIndex = 6;
             this.panelClienteMenu.Visible = false;
             // 
@@ -601,10 +604,10 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 40;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 50);
+            this.iconButton5.Location = new System.Drawing.Point(0, 55);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.iconButton5.Size = new System.Drawing.Size(218, 50);
+            this.iconButton5.Size = new System.Drawing.Size(227, 55);
             this.iconButton5.TabIndex = 2;
             this.iconButton5.Text = "Listado Clientes";
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -625,7 +628,7 @@
             this.btnNuevoCliente.Location = new System.Drawing.Point(0, 0);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnNuevoCliente.Size = new System.Drawing.Size(218, 50);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(227, 55);
             this.btnNuevoCliente.TabIndex = 1;
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -643,10 +646,10 @@
             this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClientes.IconSize = 40;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 353);
+            this.btnClientes.Location = new System.Drawing.Point(0, 418);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.btnClientes.Size = new System.Drawing.Size(218, 50);
+            this.btnClientes.Size = new System.Drawing.Size(227, 50);
             this.btnClientes.TabIndex = 5;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -654,13 +657,112 @@
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // panelContratosClientes
+            // 
+            this.panelContratosClientes.Controls.Add(this.btnListaContratos);
+            this.panelContratosClientes.Controls.Add(this.btnListadoClienteContrato);
+            this.panelContratosClientes.Controls.Add(this.bntNuevoCntratoCiente);
+            this.panelContratosClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelContratosClientes.Location = new System.Drawing.Point(0, 253);
+            this.panelContratosClientes.Name = "panelContratosClientes";
+            this.panelContratosClientes.Size = new System.Drawing.Size(227, 165);
+            this.panelContratosClientes.TabIndex = 16;
+            this.panelContratosClientes.Visible = false;
+            // 
+            // btnListaContratos
+            // 
+            this.btnListaContratos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnListaContratos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnListaContratos.FlatAppearance.BorderSize = 0;
+            this.btnListaContratos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaContratos.IconChar = FontAwesome.Sharp.IconChar.FileCircleExclamation;
+            this.btnListaContratos.IconColor = System.Drawing.Color.Black;
+            this.btnListaContratos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnListaContratos.IconSize = 40;
+            this.btnListaContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListaContratos.Location = new System.Drawing.Point(0, 110);
+            this.btnListaContratos.Name = "btnListaContratos";
+            this.btnListaContratos.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
+            this.btnListaContratos.Size = new System.Drawing.Size(227, 55);
+            this.btnListaContratos.TabIndex = 4;
+            this.btnListaContratos.Text = "Contratos con Mora";
+            this.btnListaContratos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListaContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListaContratos.UseVisualStyleBackColor = false;
+            this.btnListaContratos.Click += new System.EventHandler(this.btnListaContratos_Click_1);
+            // 
+            // btnListadoClienteContrato
+            // 
+            this.btnListadoClienteContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnListadoClienteContrato.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnListadoClienteContrato.FlatAppearance.BorderSize = 0;
+            this.btnListadoClienteContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListadoClienteContrato.IconChar = FontAwesome.Sharp.IconChar.FileText;
+            this.btnListadoClienteContrato.IconColor = System.Drawing.Color.Black;
+            this.btnListadoClienteContrato.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnListadoClienteContrato.IconSize = 40;
+            this.btnListadoClienteContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListadoClienteContrato.Location = new System.Drawing.Point(0, 55);
+            this.btnListadoClienteContrato.Name = "btnListadoClienteContrato";
+            this.btnListadoClienteContrato.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
+            this.btnListadoClienteContrato.Size = new System.Drawing.Size(227, 55);
+            this.btnListadoClienteContrato.TabIndex = 2;
+            this.btnListadoClienteContrato.Text = "Listado de Contratos";
+            this.btnListadoClienteContrato.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListadoClienteContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListadoClienteContrato.UseVisualStyleBackColor = false;
+            this.btnListadoClienteContrato.Click += new System.EventHandler(this.btnListadoClienteContrato_Click);
+            // 
+            // bntNuevoCntratoCiente
+            // 
+            this.bntNuevoCntratoCiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bntNuevoCntratoCiente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bntNuevoCntratoCiente.FlatAppearance.BorderSize = 0;
+            this.bntNuevoCntratoCiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntNuevoCntratoCiente.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
+            this.bntNuevoCntratoCiente.IconColor = System.Drawing.Color.Black;
+            this.bntNuevoCntratoCiente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bntNuevoCntratoCiente.IconSize = 40;
+            this.bntNuevoCntratoCiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntNuevoCntratoCiente.Location = new System.Drawing.Point(0, 0);
+            this.bntNuevoCntratoCiente.Name = "bntNuevoCntratoCiente";
+            this.bntNuevoCntratoCiente.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
+            this.bntNuevoCntratoCiente.Size = new System.Drawing.Size(227, 55);
+            this.bntNuevoCntratoCiente.TabIndex = 1;
+            this.bntNuevoCntratoCiente.Text = "Nuevo Contrato";
+            this.bntNuevoCntratoCiente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntNuevoCntratoCiente.UseVisualStyleBackColor = false;
+            this.bntNuevoCntratoCiente.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // btnContratarServicios
+            // 
+            this.btnContratarServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnContratarServicios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnContratarServicios.FlatAppearance.BorderSize = 0;
+            this.btnContratarServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContratarServicios.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
+            this.btnContratarServicios.IconColor = System.Drawing.Color.Black;
+            this.btnContratarServicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnContratarServicios.IconSize = 40;
+            this.btnContratarServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContratarServicios.Location = new System.Drawing.Point(0, 203);
+            this.btnContratarServicios.Name = "btnContratarServicios";
+            this.btnContratarServicios.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
+            this.btnContratarServicios.Size = new System.Drawing.Size(227, 50);
+            this.btnContratarServicios.TabIndex = 15;
+            this.btnContratarServicios.Text = "Contratos";
+            this.btnContratarServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContratarServicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContratarServicios.UseVisualStyleBackColor = false;
+            this.btnContratarServicios.Click += new System.EventHandler(this.btnContratarServicios_Click);
+            // 
             // panelUsuarioMenu
             // 
             this.panelUsuarioMenu.Controls.Add(this.btnSalir);
             this.panelUsuarioMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuarioMenu.Location = new System.Drawing.Point(0, 153);
             this.panelUsuarioMenu.Name = "panelUsuarioMenu";
-            this.panelUsuarioMenu.Size = new System.Drawing.Size(218, 50);
+            this.panelUsuarioMenu.Size = new System.Drawing.Size(227, 50);
             this.panelUsuarioMenu.TabIndex = 2;
             this.panelUsuarioMenu.Visible = false;
             // 
@@ -678,7 +780,7 @@
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnSalir.Size = new System.Drawing.Size(218, 50);
+            this.btnSalir.Size = new System.Drawing.Size(227, 50);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -694,7 +796,7 @@
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuario.Location = new System.Drawing.Point(0, 0);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(218, 153);
+            this.panelUsuario.Size = new System.Drawing.Size(227, 153);
             this.panelUsuario.TabIndex = 0;
             this.panelUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
@@ -740,90 +842,14 @@
             // panelContainer
             // 
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(235, 90);
+            this.panelContainer.Location = new System.Drawing.Point(248, 141);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1027, 602);
+            this.panelContainer.Size = new System.Drawing.Size(1014, 551);
             this.panelContainer.TabIndex = 2;
-            // 
-            // panelContratosClientes
-            // 
-            this.panelContratosClientes.Controls.Add(this.btnListadoClienteContrato);
-            this.panelContratosClientes.Controls.Add(this.bntNuevoCntratoCiente);
-            this.panelContratosClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelContratosClientes.Location = new System.Drawing.Point(0, 253);
-            this.panelContratosClientes.Name = "panelContratosClientes";
-            this.panelContratosClientes.Size = new System.Drawing.Size(218, 100);
-            this.panelContratosClientes.TabIndex = 16;
-            this.panelContratosClientes.Visible = false;
-            // 
-            // btnListadoClienteContrato
-            // 
-            this.btnListadoClienteContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnListadoClienteContrato.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnListadoClienteContrato.FlatAppearance.BorderSize = 0;
-            this.btnListadoClienteContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListadoClienteContrato.IconChar = FontAwesome.Sharp.IconChar.FileText;
-            this.btnListadoClienteContrato.IconColor = System.Drawing.Color.Black;
-            this.btnListadoClienteContrato.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnListadoClienteContrato.IconSize = 40;
-            this.btnListadoClienteContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListadoClienteContrato.Location = new System.Drawing.Point(0, 50);
-            this.btnListadoClienteContrato.Name = "btnListadoClienteContrato";
-            this.btnListadoClienteContrato.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.btnListadoClienteContrato.Size = new System.Drawing.Size(218, 50);
-            this.btnListadoClienteContrato.TabIndex = 2;
-            this.btnListadoClienteContrato.Text = "Listado de Contratos";
-            this.btnListadoClienteContrato.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListadoClienteContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnListadoClienteContrato.UseVisualStyleBackColor = false;
-            this.btnListadoClienteContrato.Click += new System.EventHandler(this.btnListadoClienteContrato_Click);
-            // 
-            // bntNuevoCntratoCiente
-            // 
-            this.bntNuevoCntratoCiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bntNuevoCntratoCiente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bntNuevoCntratoCiente.FlatAppearance.BorderSize = 0;
-            this.bntNuevoCntratoCiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntNuevoCntratoCiente.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            this.bntNuevoCntratoCiente.IconColor = System.Drawing.Color.Black;
-            this.bntNuevoCntratoCiente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bntNuevoCntratoCiente.IconSize = 40;
-            this.bntNuevoCntratoCiente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntNuevoCntratoCiente.Location = new System.Drawing.Point(0, 0);
-            this.bntNuevoCntratoCiente.Name = "bntNuevoCntratoCiente";
-            this.bntNuevoCntratoCiente.Padding = new System.Windows.Forms.Padding(25, 0, 15, 0);
-            this.bntNuevoCntratoCiente.Size = new System.Drawing.Size(218, 50);
-            this.bntNuevoCntratoCiente.TabIndex = 1;
-            this.bntNuevoCntratoCiente.Text = "Nuevo Contrato";
-            this.bntNuevoCntratoCiente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bntNuevoCntratoCiente.UseVisualStyleBackColor = false;
-            this.bntNuevoCntratoCiente.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
-            // btnContratarServicios
-            // 
-            this.btnContratarServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnContratarServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContratarServicios.FlatAppearance.BorderSize = 0;
-            this.btnContratarServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContratarServicios.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
-            this.btnContratarServicios.IconColor = System.Drawing.Color.Black;
-            this.btnContratarServicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnContratarServicios.IconSize = 40;
-            this.btnContratarServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContratarServicios.Location = new System.Drawing.Point(0, 203);
-            this.btnContratarServicios.Name = "btnContratarServicios";
-            this.btnContratarServicios.Padding = new System.Windows.Forms.Padding(10, 0, 15, 0);
-            this.btnContratarServicios.Size = new System.Drawing.Size(218, 50);
-            this.btnContratarServicios.TabIndex = 15;
-            this.btnContratarServicios.Text = "Contratos";
-            this.btnContratarServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContratarServicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnContratarServicios.UseVisualStyleBackColor = false;
-            this.btnContratarServicios.Click += new System.EventHandler(this.btnContratarServicios_Click);
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1262, 692);
@@ -845,10 +871,10 @@
             this.panelServicesMenu.ResumeLayout(false);
             this.panelEmpleadoMenu.ResumeLayout(false);
             this.panelClienteMenu.ResumeLayout(false);
+            this.panelContratosClientes.ResumeLayout(false);
             this.panelUsuarioMenu.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            this.panelContratosClientes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -883,7 +909,6 @@
         private System.Windows.Forms.Panel panelMenuAdmin;
         private FontAwesome.Sharp.IconButton btnAdminZonas;
         private FontAwesome.Sharp.IconButton btnZonas;
-        private FontAwesome.Sharp.IconButton btnListaContratos;
         private FontAwesome.Sharp.IconButton btnNuevoContrato;
         private FontAwesome.Sharp.IconButton btnAdministracion;
         private System.Windows.Forms.Panel panelServicesMenu;
@@ -897,5 +922,7 @@
         private FontAwesome.Sharp.IconButton btnListadoClienteContrato;
         private FontAwesome.Sharp.IconButton bntNuevoCntratoCiente;
         private FontAwesome.Sharp.IconButton btnContratarServicios;
+        private FontAwesome.Sharp.IconButton btnAsignarMision;
+        private FontAwesome.Sharp.IconButton btnListaContratos;
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProyectoFinalDB" Class="ConexionLinqSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-HJH9G5O;Initial Catalog=ProyectoFinalDB;User ID=sa" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="ProyectoFinalDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-HJH9G5O;Initial Catalog=ProyectoFinalDB;Persist Security Info=True;User ID=sa" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="ProyectoFinalDBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.contratos_empleados" Member="contratos_empleados">
     <Type Name="contratos_empleados">
       <Column Name="id_contratos_empleados" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,7 +33,6 @@
       <Column Name="telefono1_cliente" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
       <Column Name="telefono2_cliente" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
       <Column Name="email_cliente" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="usuario_cliente" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
       <Column Name="contrasena_cliente" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Association Name="clientes_contrato_cliente_plan" Member="contrato_cliente_plan" ThisKey="dpi_cliente" OtherKey="dpi_cliente" Type="contrato_cliente_plan" />
     </Type>
@@ -51,6 +50,7 @@
       <Column Name="estado_empleado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="empleados_detalle_contrato_empleado" Member="detalle_contrato_empleado" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="detalle_contrato_empleado" />
       <Association Name="empleados_relacion_mision_empleado" Member="relacion_mision_empleado" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="relacion_mision_empleado" />
+      <Association Name="empleados_Historial" Member="Historial" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="Historial" />
     </Type>
   </Table>
   <Table Name="dbo.departamento" Member="departamento">
@@ -95,6 +95,7 @@
       <Column Name="nombre_zona" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="id_muni" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="zonas_disponibilidades" Member="disponibilidades" ThisKey="id_zona" OtherKey="id_zona" Type="disponibilidades" />
+      <Association Name="zonas_contrato_cliente_plan" Member="contrato_cliente_plan" ThisKey="id_zona" OtherKey="id_zona" Type="contrato_cliente_plan" />
       <Association Name="municipio_zonas" Member="municipio" ThisKey="id_muni" OtherKey="id_muni" Type="municipio" IsForeignKey="true" />
     </Type>
   </Table>
@@ -124,8 +125,11 @@
       <Column Name="id_zona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="detalles_contrato" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="precio_plan" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Association Name="contrato_cliente_plan_solicitudes_de_contrato" Member="solicitudes_de_contrato" ThisKey="id_contrato_cliente_plan" OtherKey="id_contrato_cliente_plan" Type="solicitudes_de_contrato" />
+      <Association Name="contrato_cliente_plan_encabezado_facturas" Member="encabezado_facturas" ThisKey="id_contrato_cliente_plan" OtherKey="id_contrato_cliente_plan" Type="encabezado_facturas" />
       <Association Name="planes_contrato_cliente_plan" Member="planes" ThisKey="id_plan" OtherKey="id_plan" Type="planes" IsForeignKey="true" />
       <Association Name="clientes_contrato_cliente_plan" Member="clientes" ThisKey="dpi_cliente" OtherKey="dpi_cliente" Type="clientes" IsForeignKey="true" />
+      <Association Name="zonas_contrato_cliente_plan" Member="zonas" ThisKey="id_zona" OtherKey="id_zona" Type="zonas" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.detalle_plan" Member="detalle_plan">
@@ -145,15 +149,7 @@
       <Column Name="descripcion_cuota" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
       <Column Name="costo_cuota" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
       <Column Name="estado_cuota" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.detalles_misiones_empleado" Member="detalles_misiones_empleado">
-    <Type Name="detalles_misiones_empleado">
-      <Column Name="id_detalles_misiones_empleado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nota_detalle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="foto_detalle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fecha_hora_detalle" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="id_misiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cuota_solicitudes_de_contrato" Member="solicitudes_de_contrato" ThisKey="id_cuota" OtherKey="id_cuota" Type="solicitudes_de_contrato" />
     </Type>
   </Table>
   <Table Name="dbo.solicitudes_de_contrato" Member="solicitudes_de_contrato">
@@ -167,15 +163,8 @@
       <Column Name="id_cuota" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="concepto_solicitud" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
       <Association Name="solicitudes_de_contrato_encabezado_misiones" Member="encabezado_misiones" ThisKey="id_solicitudes_de_contrato" OtherKey="id_solicitudes_de_contrato" Type="encabezado_misiones" />
-    </Type>
-  </Table>
-  <Table Name="dbo.relacion_mision_empleado" Member="relacion_mision_empleado">
-    <Type Name="relacion_mision_empleado">
-      <Column Name="id_relacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
-      <Column Name="id_misiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="empleados_relacion_mision_empleado" Member="empleados" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="empleados" IsForeignKey="true" />
-      <Association Name="encabezado_misiones_relacion_mision_empleado" Member="encabezado_misiones" ThisKey="id_misiones" OtherKey="id_misiones" Type="encabezado_misiones" IsForeignKey="true" />
+      <Association Name="contrato_cliente_plan_solicitudes_de_contrato" Member="contrato_cliente_plan" ThisKey="id_contrato_cliente_plan" OtherKey="id_contrato_cliente_plan" Type="contrato_cliente_plan" IsForeignKey="true" />
+      <Association Name="cuota_solicitudes_de_contrato" Member="cuota" ThisKey="id_cuota" OtherKey="id_cuota" Type="cuota" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.encabezado_misiones" Member="encabezado_misiones">
@@ -189,6 +178,39 @@
       <Column Name="estado_asignacion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="encabezado_misiones_relacion_mision_empleado" Member="relacion_mision_empleado" ThisKey="id_misiones" OtherKey="id_misiones" Type="relacion_mision_empleado" />
       <Association Name="solicitudes_de_contrato_encabezado_misiones" Member="solicitudes_de_contrato" ThisKey="id_solicitudes_de_contrato" OtherKey="id_solicitudes_de_contrato" Type="solicitudes_de_contrato" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.relacion_mision_empleado" Member="relacion_mision_empleado">
+    <Type Name="relacion_mision_empleado">
+      <Column Name="id_relacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="id_misiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="empleados_relacion_mision_empleado" Member="empleados" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="empleados" IsForeignKey="true" />
+      <Association Name="encabezado_misiones_relacion_mision_empleado" Member="encabezado_misiones" ThisKey="id_misiones" OtherKey="id_misiones" Type="encabezado_misiones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.encabezado_facturas" Member="encabezado_facturas">
+    <Type Name="encabezado_facturas">
+      <Column Name="id_factura" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_creacion_factura" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="monto_factura" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="mora_factura" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="total_factura" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_factura" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_pago_factura" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="id_contrato_cliente_plan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dias_retraso_pago" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ultima_fecha_mora" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="contrato_cliente_plan_encabezado_facturas" Member="contrato_cliente_plan" ThisKey="id_contrato_cliente_plan" OtherKey="id_contrato_cliente_plan" Type="contrato_cliente_plan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Historial" Member="Historial">
+    <Type Name="Historial">
+      <Column Name="id_historial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dpi_empleado" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="concepto" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_realizado" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="empleados_Historial" Member="empleados" ThisKey="dpi_empleado" OtherKey="dpi_empleado" Type="empleados" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
